@@ -2,6 +2,8 @@
 \usepackage[section]{placeins}
 \usepackage{float}
 \usepackage[position=b]{subfig}
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}% Resets subfigure counter at start of figure environment
 
 \mode<presentation>{
   %   \usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
@@ -311,8 +313,14 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \justifying
   \begin{itemize}
-    \item Código para a quantização: \url{http://dx.doi.org/10.5281/zenodo.15932}
-    \item Código da geração artificial: \url{https://github.com/GabiThume/msc-src}
+    \item Código para a quantização:
+    \begin{center}
+     \small{\url{http://dx.doi.org/10.5281/zenodo.15932}}
+    \end{center}
+    \item Código da geração artificial:
+    \begin{center}
+    \small{\url{https://github.com/GabiThume/msc-src}}
+  \end{center}
   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,7 +337,8 @@ Universidade de São Paulo \\ }
 % \setlength\leftmargini{0em}
 % \begin{description}
 % \item [Textura:] suavidade, aspereza e uniformidade. Ex. entropia;
-% \item [Forma:] características externas. Ex. curvatura;
+% \item [Forma:] características externas. Ex. curvatura;\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}% Resets subfigure counter at start of figure environment
 % \item [Cor:] distribuição espacial de cores na imagem. Ex. histograma.
 % \end{description}
 % \end{frame}
@@ -352,7 +361,8 @@ Universidade de São Paulo \\ }
 \subsection{Contextualização}
 %-----------------------------------------------------------------------------
 \begin{frame}{Pré-processamento de Imagens - Quantização}
-\begin{figure}[!htbp]
+\setlength\leftmargini{1em}
+\begin{figure}
  \begin{center}
   \subfloat[Original]{
     \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Lenna.png}}
@@ -363,7 +373,8 @@ Universidade de São Paulo \\ }
   \subfloat[Gleam]{
     \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Gleam_gray.png}}
   }
-  \newline
+\end{center}
+\begin{center}
   \subfloat[Luminância']{
     \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Luminance_gray.png}}
   }
@@ -377,7 +388,6 @@ Universidade de São Paulo \\ }
   % \caption{Conversão para a escala de cinza com os métodos utilizados nessa pesquisa. Os métodos resultam em uma imagem com 8 bits (256 cores).}
   \end{figure}
 \end{frame}
-
 %-----------------------------------------------------------------------------
 \begin{frame}{Quantização de imagens}
   \begin{figure}
@@ -399,7 +409,7 @@ Universidade de São Paulo \\ }
         \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/fig_quantMSB.png}}
       }
     \end{center}
-    \caption{A imagem original resultou em versões de um canal de cor com 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos. Observa-se que os métodos\emph{Luminância'} e MSB conseguiram uma melhor discriminação entre cores.}
+    \caption{Versões de um canal de cor com 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos. Os métodos \emph{Luminância'} e MSB conseguiram uma melhor discriminação entre cores.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -409,7 +419,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_quantizationexample.jpg}}
     \end{center}
-    \caption{Exemplo de duas imagens da base de dados \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB. Da esquerda para a direita: imagem original 24-bits e suas versões quantizadas com: 256, 64, 32, 16 e 8 cores.}
+    \caption{Imagens da base \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB.}
   \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -429,6 +439,7 @@ Universidade de São Paulo \\ }
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimentos}
+\setlength\leftmargini{1em}
   \begin{figure}
     \begin{center}
       \centering
@@ -441,21 +452,26 @@ Universidade de São Paulo \\ }
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimentos - Bases de Imagens}
+  \setlength\leftmargini{1em}
   \begin{figure}[!htbp]
     \begin{center}
-      \subfloat[Base de imagens Corel-1000]{
-        \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_COREL_dataset.jpg}}
-      }
-      \newline
-      \subfloat[Base de imagens Caltech101-600]{
-        \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_Caltech101_dataset.jpg}}
-      }
-      \newline
-      \subfloat[Base de imagens Produce]{
-        \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_Produce_dataset.jpg}}
+      \begin{minipage}{.5\linewidth}
+      \centering
+        \subfloat[Corel-1000]{
+          \includegraphics[width=.8\linewidth]{\detokenize{figuras/quantization/fig_COREL_dataset.jpg}}
+        }
+      \end{minipage}%
+      \begin{minipage}{.5\linewidth}
+        \subfloat[Caltech101-600]{
+          \includegraphics[width=.8\linewidth]{\detokenize{figuras/quantization/fig_Caltech101_dataset.jpg}}
+        }
+      \end{minipage}\par\medskip
+      \centering
+      \subfloat[Produce]{
+        \includegraphics[width=.4\linewidth]{\detokenize{figuras/quantization/fig_Produce_dataset.jpg}}
       }
     \end{center}
-    \caption{Bases de imagens Corel-1000, Caltech101-600 e Produce. Elas são utilizadas nos experimentos de quantização.}
+    \caption{Bases de imagens utilizadas nos experimentos de quantização.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -465,16 +481,16 @@ Universidade de São Paulo \\ }
 \begin{block}{}
 \justifying
 \begin{enumerate}
-  \item \textbf{Quantização}: com os métodos \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB.
-  \item \textbf{Extração de características}: utilizando os métodos e parâmetros escolhidos com base nas recomendações dos artigos que proporam tais métodos:
-  \begin{itemize}
-    \item \textit{Auto Color Correlogram} (ACC): a métrica de distância utilizada entre os pixels $p(x,y)$ e $q(s,t)$ é a tabuleiro de xadrez $D_8(p,q) = Max(|x-s| + d, |y-t| + d)$ para quatro distâncias $d =$ 1, 3, 5 e 7;
+  \item \textbf{Quantização}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB.
+  \item \textbf{Extração de características}
+    \begin{itemize}
+    \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
     \item \textit{Border-Interior Classification} (BIC): com uma vizinhança de quatro pixels;
     \item \textit{Color Coherence Vector} (CCV): adotando um valor de $\mathit{threshold} = 25$ para a classificação dos pixels entre coerentes e incoerentes;
     \item Haralick-6: o pixel vizinho para o qual iniciar a computar a matriz de co-ocorrência foi o pixel à direita.
   \end{itemize}
-  \item \textbf{Redução da dimensionalidade}: a projeção utilizando \textit{Locality Preserving Projections} (LPP) foi realizada com o parâmetro $k =$ 128, 64, 32 e 16 dimensões e 10 vizinhos. Esse parâmetro foi determinado empiricamente e não influencia consideravelmente a acurácia.
-  \item \textbf{Classificação}: realizada com o classificador \textit{Support Vector Machines} (SVM). Os parâmetros para essa etapa foram encontrados utilizando uma \textit{grid search} no conjunto de treinamento.
+  \item \textbf{Redução da dimensionalidade}: a projeção utilizando \textit{Locality Preserving Projections} (LPP) foi realizada com o parâmetro $k =$ 128, 64, 32 e 16 dimensões e 10 vizinhos (determinado empiricamente e não influencia consideravelmente a acurácia).
+  \item \textbf{Classificação}: \textit{Support Vector Machines} (SVM). Os parâmetros para essa etapa foram encontrados utilizando uma \textit{grid search} no conjunto de treinamento.
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -494,9 +510,9 @@ Universidade de São Paulo \\ }
 \begin{figure}[!htbp]
   \begin{center}
     \centering
-    \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual.png}}
+    \includegraphics[width=.8\linewidth]{\detokenize{figuras/quantization/fig_results_individual.png}}
   \end{center}
-  \caption{Resultados para as bases Corel-1000 (a), Produce (b) e Caltech101-600 (c), utilizando todos os métodos de quantização. Para cada método de extração de características a acurácia é resultante da sua aplicação utilizando 256, 128, 64, 32, 16 e 8 cores, da esquerda para a direita.}
+  \caption{Para cada método de extração de características a acurácia é resultante da sua aplicação utilizando 256, 128, 64, 32, 16 e 8 cores, da esquerda para a direita.}
 \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -506,7 +522,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotBIC.png}}
     \end{center}
-    \caption{Resultados de acurácia média da classificação utilizando o método de quantização MSB considerando 256, 128, 64 e 32 cores com o método de extração de características BIC. Os  \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores.}
+    \caption{Acurácia média da classificação utilizando MSB considerando 256, 128, 64 e 32 cores com BIC. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -516,7 +532,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotHaralick.png}}
     \end{center}
-    \caption{Acurácia média da classificação após a utilização do método de quantização \emph{Luminância'} considerando 256, 128, 64 e 32 cores com o descritor Haralick. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores}
+    \caption{Acurácia média da classificação após a utilização do método de quantização \emph{Luminância'} considerando 256, 128, 64 e 32 cores com o descritor Haralick.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -526,7 +542,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotMSBLPP.png}}
     \end{center}
-    \caption{Resultados de acurácia para os método MSB (quantização), LPP (redução de dimensionalidade) e BIC (extração de características). A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade. Os boxplots em cinza correspondem às significâncias estatísticas com $p < 0.01$ quando comparado a acurácia de 256 cores.}
+    \caption{Acurácia para os método MSB (quantização), LPP (redução de dimensionalidade) e BIC (extração de características). A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -536,7 +552,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_full.png}}
     \end{center}
-    \caption{Comparação da acurácia alcançada com diferentes métodos de quantização: \emph{Gleam}, \emph{Intensidade'}, \emph{Luminância'} e MSB. Inicialmente as imagens foram convertidas para escala de cinza com esses quatro métodos e foram dadas como entrada para todos os métodos de extração. O vetor de características resultante com $D=2310$ sofreu então redução da dimensionalidade com o método LPP para $d = 1160$, $582$, $294$ e $150$.}
+    \caption{Acurácia de diferentes métodos de quantização: \emph{Gleam}, \emph{Intensidade'}, \emph{Luminância'} e MSB. As imagens foram convertidas para escala de cinza com esses quatro métodos e foram dadas como entrada para todos os métodos de extração. O vetor de características resultante com $D=2310$ sofreu então redução da dimensionalidade com o método LPP para $d = 1160$, $582$, $294$ e $150$.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -625,7 +641,9 @@ Universidade de São Paulo \\ }
 %-----------------------------------------------------------------------------
 \begin{frame}{Desbalanceamento de classes - Sobreamostragem}
 \setlength\leftmargini{0em}
+\footnotesize{
 \justifying
+\begin{block}{}
   \begin{algorithm}[H]
     \caption{SMOTE: método para rebalancear classes}
     \SetAlgoLined
@@ -644,6 +662,8 @@ Universidade de São Paulo \\ }
       $S \gets S \cup \textit{novo\_elemento}$\;
     }
   \end{algorithm}
+\end{block}
+}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Desbalanceamento de classes - SMOTE}
@@ -1070,11 +1090,12 @@ Universidade de São Paulo \\ }
   Para o resultado da combinação dos melhores métodos de conversão em escala de cinza e extração de características, o teste \textit{post-hoc} HSD de Tukey revelou que não há diferença estatística entre a base desbalanceada e o SMOTE ($\textit{p-value} = 0.2073$). Mas indicou que existe uma significância entre o desbalanceamento e a geração artificial ($\textit{p-value} = 0.0062$). Isso significa que o melhor método para rebalancear essas classes é a geração artificial utilizando o método de \emph{mistura}s de duas imagens. Ainda de acordo com o teste, não há evidência estatística da relevância do resultado da combinação de maior variância. Portanto, todos os próximos experimentos relatam apenas os resultados da melhor combinação.
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
-  \begin{table}[!htbp]
+\begin{frame}{\textit{Ranking} dos métodos de rebalanceamento}
+\setlength\leftmargini{1em}
+  \begin{table}
   \centering
-  \caption{\textit{Ranking} dos métodos de rebalanceamento ao acumular os resultados de todos os experimentos. Esse valor é dado pela soma da posição de cada método em relação ao \textit{F1-Score}, em ordem ascendente.}
-  \label{tab:allranking}
+  \caption{Resultados acumulados de todos os experimentos.}
+  \footnotesize{
   \begin{tabular}{|l|l|l|}
   \hline
   \multicolumn{1}{|c|}{\textbf{Cenários de duas classes}} & \multicolumn{1}{c|}{\textbf{Cenário Multiclasses}} & \multicolumn{1}{c|}{\textbf{Todos}} \\ \hline
@@ -1091,14 +1112,16 @@ Universidade de São Paulo \\ }
   SMOTE Visual (47)                                       & Desbalanceado (34)                                 & Desbalanceado (86)                  \\ \hline
   Desbalanceado (52)                                      & SMOTE Visual (42)                                  & SMOTE Visual (89)                   \\ \hline
   \end{tabular}
+  }
   \end{table}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
-  \begin{table}[!htbp]
+\begin{frame}{\textit{F1-Scores} de cada método}
+\setlength\leftmargini{0em}
+  \begin{table}
   \centering
-  \caption{Apresenta a média dos \textit{F1-Scores} para cada método, ordenada pela coluna de todos os experimentos. É possível verificar que, no cenário multiclasses, apesar de ter sido o melhor método em relação à sua posição, o SMOTE apresentou piores resultados mesmo comparando com as bases desbalanceadas.}
-  \label{tab:allfscore}
+  \caption{Média ordenada pela coluna de todos os experimentos.}
+  \footnotesize{
   \begin{tabular}{|l|c|c|c|}
   \hline
   \multicolumn{1}{|c|}{\textbf{Métodos}} & \textbf{Cenários de duas classes} & \textbf{Cenário Multiclasses} & \textbf{Todos} \\ \hline
@@ -1115,6 +1138,7 @@ Universidade de São Paulo \\ }
   SMOTE                                  & 79,085501                         & 73,329079                     & 76,527091      \\ \hline
   SMOTE Visual                           & 78,811666                         & 70,439604                     & 75,090749      \\ \hline
   \end{tabular}
+  }
   \end{table}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1131,6 +1155,7 @@ Universidade de São Paulo \\ }
 \end{table}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusões}
 \begin{frame}{Artigo publicado na Neurocomputing}
 
 % \begin{columns}
@@ -1200,7 +1225,6 @@ Ponti, M.; Nazaré, T; Thumé, G. \textbf{Image quantization as a dimensionality
 %-----------------------------------------------------------------------------
 % \section{Referências}
 \nocite{*}
-%\section{Referências}
 \begin{frame}[allowframebreaks]{Referências}
 \tiny
 % \bibliographystyle{apacite}
