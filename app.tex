@@ -213,7 +213,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação - Características Latentes}
+\begin{frame}{Motivação --- Características Latentes}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
@@ -237,7 +237,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação - Desbalanceamento de classes}
+\begin{frame}{Motivação --- Desbalanceamento de classes}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
@@ -366,7 +366,7 @@ Universidade de São Paulo \\ }
 
 \subsection{Contextualização}
 %-----------------------------------------------------------------------------
-\begin{frame}{Pré-processamento de Imagens - Quantização}
+\begin{frame}{Pré-processamento de Imagens --- Quantização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -462,7 +462,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos - Bases de Imagens}
+\begin{frame}{Experimentos --- Bases de Imagens}
   \setlength\leftmargini{1em}
   \begin{figure}[!htbp]
     \begin{center}
@@ -615,6 +615,7 @@ Universidade de São Paulo \\ }
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Conclusões}
+  [TODO]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geração de imagens artificiais}
@@ -638,7 +639,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Desbalanceamento de classes - Subamostragem}
+\begin{frame}{Desbalanceamento de classes --- Subamostragem}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
@@ -651,7 +652,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Desbalanceamento de classes - Sobreamostragem}
+\begin{frame}{Desbalanceamento de classes --- Sobreamostragem}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
@@ -669,7 +670,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Desbalanceamento de classes - Sobreamostragem}
+\begin{frame}{Desbalanceamento de classes --- Sobreamostragem}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \footnotesize{
@@ -697,7 +698,7 @@ Universidade de São Paulo \\ }
   }
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Desbalanceamento de classes - SMOTE}
+\begin{frame}{Desbalanceamento de classes --- SMOTE}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
@@ -920,7 +921,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{figure}
     \centering
-    \includegraphics[scale=.6]{\detokenize{figuras/flow_main.pdf}}
+    \includegraphics[scale=.58]{\detokenize{figuras/flow_main.pdf}}
     \caption{Fluxo de operações para obtenção dos resultados do rebalanceamento de classes.}
 % O mesmo protocolo de conversão para escala de cinza, extração de características e classificação foi seguido para três sub-experimentos: base desbalanceada; base rebalanceada com interpolação dos vetores de características (método SMOTE); e base rebalanceada com a geração artificial de imagens.}
   \end{figure}
@@ -931,7 +932,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{figure}
     \centering
-    \includegraphics[scale=.13]{\detokenize{figuras/folds_chart.png}}
+    \includegraphics[scale=.12]{\detokenize{figuras/folds_chart.png}}
     \caption{Ilustração de como os experimentos de geração de imagens artificiais foram realizados.}
 % Primeiramente as imagens são separadas de forma aleatória em $k = 5$ \textit{folds} em cada classe. Em seguida, as duas classes compõem 40 configurações, consistindo em todas as possibilidades de: um fold para teste e os outros como treino para a classe que permanecerá balanceada; e um de teste e apenas um de treino para a classe que os métodos de processamento irão rebalancear. Tal validação é repetida para todas as classes, ou seja, cada classe tem a possibilidade de ser a minoritária.}
   \end{figure}
@@ -1117,7 +1118,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{figure}
     \begin{center}
-      \includegraphics[width=.6\linewidth]{\detokenize{figuras/visualizacao/vis-images.png}}
+      \includegraphics[width=.58\linewidth]{\detokenize{figuras/visualizacao/vis-images.png}}
     \end{center}
     \caption{Impacto do método de extração de características na separação entre classes.}
   \end{figure}
@@ -1243,38 +1244,52 @@ Universidade de São Paulo \\ }
 \begin{frame}{Resultados --- Fine tunning}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  % \begin{table}
-  %   \url{http://caffe.berkeleyvision.org/}
-  %   \caption{Treinamento das classes praia e montanha da base COREL-1000.}
-  %   \begin{tabular}{c|c}
-  %     Bases    &   Medida F1 \\ \hline
-  %     Original não balanceada     &   0.708  \\
-  %     Desbalanceada em 50\% &   0.577  \\
-  %     Rebalanceada  &   0.677  \\
-  %   \end{tabular}
-  % \end{table}
+  [TODO]
+  \begin{itemize}
+    \item Ligeira melhora
+  \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Resultados --- Rede de Convolução}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  % \begin{table}
-  %   \url{http://caffe.berkeleyvision.org/}
-  %   \caption{Treinamento das classes praia e montanha da base COREL-1000.}
-  %   \begin{tabular}{c|c}
-  %     Bases    &   Medida F1 \\ \hline
-  %     Original não balanceada     &   0.708  \\
-  %     Desbalanceada em 50\% &   0.577  \\
-  %     Rebalanceada  &   0.677  \\
-  %   \end{tabular}
-  % \end{table}
+  [TODO]
+  \begin{table}
+    \url{http://caffe.berkeleyvision.org/}
+    \caption{Treinamento das classes praia e montanha da base COREL-1000.}
+    \begin{tabular}{c|c}
+      Bases    &   Medida F1 \\ \hline
+      Original não balanceada     &     \\
+      Desbalanceada &     \\
+      Rebalanceada com geração de imagens artificiais &     \\
+    \end{tabular}
+  \end{table}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Conclusões}
+\subsection{Considerações}
+\begin{frame}{Considerações}
+  [TODO]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusões}
-\begin{frame}{Conclusões gerais}
+\begin{frame}{Conclusões}
+  \begin{itemize}
+    \item Quantização como alternativa/complemento à seleção de características;
+    \item Redução de 256 para 64 produziu bons resultados;
+    \item Utilizar quantização e LPP;
+    \item Faz parte do pipeline: não aumenta o custo computacional do sistema e simplifica os passos subsequentes;
+    \item Reduz a dimensão dos vetores de características de cor;
+    \item Reduz o tempo de computação para os descritores de textura.
+  \end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Conclusões}
+  \begin{itemize}
+    \item A geração de imagens artificiais pode gerar novas informações para a classificação de imagens;
+    \item Contribuiu com o balanceamento entre classes;
+    \item Melhorou a acurácia dos algoritmos de classificação, inclusive quando comparada à geração de exemplos no espaço de atributos (SMOTE);
+    \item A visualização do espaço mostrou que a geração é capaz de ocupar uma região mais abrangente do espaço;
+  \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Artigo publicado}
