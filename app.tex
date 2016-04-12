@@ -187,20 +187,11 @@ Universidade de São Paulo \\ }
     \item Generalização permite classificar novos exemplos;
     \pause
     \item Características que não são suficientes para a diferenciação entre as classes;
-    \item Encontrar as características que melhor discriminam as classes.
+    % \item Encontrar as características que melhor discriminam as classes.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
 \subsection{Motivação}
-\begin{frame}[plain]{Motivação}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \begin{figure}
-    \includegraphics[height=0.9\textheight]{figuras/flow.png}
-    \caption{Etapas canônicas do reconhecimento de padrões.}
-  \end{figure}
-\end{frame}
-%-----------------------------------------------------------------------------
 \begin{frame}{Motivação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
@@ -213,27 +204,36 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação --- Características Latentes}
+\begin{frame}[plain]{Motivação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  \justifying
-  \setstretch{1.2}
-  \begin{itemize}
-    \item Justificado o uso de métodos de processamento e preparação de imagens antes da extração;
-    \item Podem revelar características latentes, que possam melhor descrever certas classes, utilizando algoritmos sobre as imagens originais.
-  \end{itemize}
+  \begin{figure}
+    \includegraphics[height=0.9\textheight]{figuras/flow.png}
+    \caption{Etapas canônicas do reconhecimento de padrões.}
+  \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação}
+% \begin{frame}{Motivação --- Características Latentes}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \justifying
+%   \setstretch{1.2}
+%   \begin{itemize}
+%     \item Justificado o uso de métodos de processamento e preparação de imagens antes da extração;
+%     \item Podem revelar características latentes, que possam melhor descrever certas classes, utilizando algoritmos sobre as imagens originais.
+%   \end{itemize}
+% \end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivação --- Quantização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
   \setstretch{1.2}
   \begin{itemize}
     \justifying
-    \item 98\% de acurácia após pré-processamento e segmentação (Rocha et al., 2010); % frutas
+    \item Apesar de fazer parte do pipeline, muitos estudos não descrevem o método de quantização e seus parâmetros;
     \item Quantização pode impactar a classificação (Kanan e Cottrell, 2012);
-    \item Quantização permite obter vetores de características mais compactos e com maior capacidade de discriminação entre classes (Ponti et al., 2014);
+    \item Ao negligenciar essa etapa, perde-se a oportunidade de redução da dimensionalidade do vetor de características e/ou do tempo de execução das etapas posteriores.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -241,17 +241,29 @@ Universidade de São Paulo \\ }
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
-  % \setstretch{1.2}
+  \setstretch{1.2}
   \begin{itemize}
     \item Diferença entre o número de exemplos disponíveis;
     \item Imagens representam eventos importantes mas menos frequentes;
-    \item Obstáculo, métodos de transformação do espaço e de
+    \item Métodos de transformação do espaço e de
     classificação assumem que a base está balanceada;
-    \item Foco: \textbf{geração de imagens artificiais a partir do processamento de características das imagens da classe minoritária.}
+    \item Normalmente esses sistemas dão preferência à predição da classe majoritária, prejudicando a classificação da minoritária.
+  \end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivação --- Rebalanceamento de classes}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \justifying
+  % \setstretch{1.2}
+  \begin{itemize}
+    \item Synthetic Minority Over-sampling Technique (SMOTE) propõe a geração de exemplos artificiais a partir dos vetores de características originais das classes minoritárias;
+    \item Não há registro conhecido de um estudo dessas técnicas em dados de informação visual para o rebalanceamento de classes;
+    \item Foco: \textit{geração de imagens artificiais a partir do processamento das imagens da classe minoritária.}
   \end{itemize}
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics[width=.4\linewidth]{figuras/imagemgerada.jpg}
+      \includegraphics[width=.3\linewidth]{figuras/imagemgerada.jpg}
       \caption{Imagem artificialmente gerada.}
     \end{center}
   \end{figure}
@@ -281,21 +293,21 @@ Universidade de São Paulo \\ }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Contribuições}
-\begin{frame}{Contribuição geral}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \justifying
-  \begin{block}{}
-    \justifying
-    \emph{Investigar os métodos de pré-processamento para preparar uma coleção de imagens para a extração de características.}
-
-    \vspace{5mm}
-    Observa-se o efeito da quantização de imagens e do balanceamento do número de instâncias de diferentes classes na classificação.
-  \end{block}
-\end{frame}
+% \begin{frame}{Contribuição geral}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \justifying
+%   \begin{block}{}
+%     \justifying
+%     \emph{Investigar os métodos de pré-processamento para preparar uma coleção de imagens para a extração de características.}
+%
+%     \vspace{5mm}
+%     Observa-se o efeito da quantização de imagens e do balanceamento do número de instâncias de diferentes classes na classificação.
+%   \end{block}
+% \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Contribuições específicas}
-  \setstretch{1.2}
+  \setstretch{1.5}
   \setlength\leftmargini{1em}
   \justifying
   \begin{itemize}
@@ -305,7 +317,14 @@ Universidade de São Paulo \\ }
       \item Reduzindo o tamanho do vetor após a quantização e posterior extração de características;
       \item Redução do tempo de processamento para os métodos de descrição de textura.
     \end{itemize}
-    \pause
+  \end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Contribuições específicas}
+  \setstretch{1.5}
+  \setlength\leftmargini{1em}
+  \justifying
+  \begin{itemize}
     \item Demostrar que a geração de imagens artificiais pode contribuir com o balanceamento entre classes.
     \begin{itemize}
       \item Melhorando o \textit{F1-Score} resultante de algoritmos de classificação;
@@ -356,9 +375,9 @@ Universidade de São Paulo \\ }
   \begin{block}{}
     \justifying
     \begin{itemize}
-      \item O pipeline de reconhecimento de imagens inclui a conversão de imagens coloridas em imagens com apenas um canal ($2^3$ = 8 bits, $2^8$ = 256 intensidades);
-      \item Após, essas imagens quantizadas são processadas por métodos de extração de características;
-      \item Essa pesquisa explorou essa etapa para produzir vetores mais compactos.
+      \item Métodos de extração preparados para receber imagens em um canal de cor ($2^3$ = 8 bits);
+      \item O pipeline de reconhecimento de imagens inclui a conversão de imagens coloridas em imagens com apenas um canal;
+      \item Essa pesquisa explora essa etapa para produzir vetores mais compactos.
       \item Diferentes parâmetros de quantização combinados com quatro métodos de extração de cor e um de textura.
     \end{itemize}
   \end{block}
@@ -385,9 +404,9 @@ Universidade de São Paulo \\ }
       \subfloat[Luminância']{
       \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Luminance_gray.png}}
       }
-      \subfloat[Luma]{
-      \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Luma_gray.png}}
-      }
+      % \subfloat[Luma]{
+      % \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/Luma_gray.png}}
+      % }
       \subfloat[MSB]{
       \includegraphics[width=.22\linewidth]{\detokenize{figuras/quantization/MSB_gray.png}}
       }
@@ -418,7 +437,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/fig_quantMSB.png}}
       }
     \end{center}
-    \caption{Versões de um canal de cor com 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos. Os métodos \emph{Luminância'} e MSB conseguiram uma melhor discriminação entre cores.}
+    \caption{Versões de um canal de cor com 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos. Os métodos \emph{Luminância'} e MSB apresentam uma melhor discriminação entre cores.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -430,7 +449,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_quantizationexample.jpg}}
     \end{center}
-    \caption{Imagens da base \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB.}
+    \caption{Imagens da base \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB. Com 256, 128 e 64 há preservação das cores. Com apenas 32, perda considerável de informação nas regiões com pouco contraste.}
   \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -478,7 +497,7 @@ Universidade de São Paulo \\ }
         }
       \end{minipage}\par\medskip
       \centering
-        \subfloat[Produce]{
+        \subfloat[Produce-1400]{
           \includegraphics[width=.4\linewidth]{\detokenize{figuras/quantization/fig_Produce_dataset.jpg}}
         }
     \end{center}
@@ -613,10 +632,6 @@ Universidade de São Paulo \\ }
     \end{enumerate}
   \end{block}
 \end{frame}
-%-----------------------------------------------------------------------------
-\begin{frame}{Conclusões}
-  [TODO]
-\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Geração de imagens artificiais}
 \subsection{Contextualização}
@@ -670,33 +685,33 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Desbalanceamento de classes --- Sobreamostragem}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \footnotesize{
-  \justifying
-  \begin{block}{}
-    \begin{algorithm}[H]
-      \caption{SMOTE: método para rebalancear classes}
-      \SetAlgoLined
-      \Entrada{Imagem colorida $I$ em formato RGB}
-      \Saida{Exemplos sintéticos $S$}
-      $N \gets \textit{vizinhos(classe minoritária)}$\;
-      \ParaCada{exemplo da classe minoritária}{
-      $nn \gets \textit{vizinho aleatório de N}$\;
-      $\textit{novo\_elemento} \gets \emptyset $\;
-
-      \ParaCada{\textit{característica} $(x,y)$ do exemplo}{
-      $\textit{diferença} \gets nn(x,y) - exemplo(x,y)$\;
-      $\textit{gap} \gets \textit{número aleatório entre 0 e 1}$\;
-      $\textit{novo\_elemento}(x,y) \gets exemplo(x,y) + gap*\textit{diferença}$\;
-      }
-      $S \gets S \cup \textit{novo\_elemento}$\;
-      }
-    \end{algorithm}
-  \end{block}
-  }
-\end{frame}
+% \begin{frame}{Desbalanceamento de classes --- Sobreamostragem}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \footnotesize{
+%   \justifying
+%   \begin{block}{}
+%     \begin{algorithm}[H]
+%       \caption{SMOTE: método para rebalancear classes}
+%       \SetAlgoLined
+%       \Entrada{Imagem colorida $I$ em formato RGB}
+%       \Saida{Exemplos sintéticos $S$}
+%       $N \gets \textit{vizinhos(classe minoritária)}$\;
+%       \ParaCada{exemplo da classe minoritária}{
+%       $nn \gets \textit{vizinho aleatório de N}$\;
+%       $\textit{novo\_elemento} \gets \emptyset $\;
+%
+%       \ParaCada{\textit{característica} $(x,y)$ do exemplo}{
+%       $\textit{diferença} \gets nn(x,y) - exemplo(x,y)$\;
+%       $\textit{gap} \gets \textit{número aleatório entre 0 e 1}$\;
+%       $\textit{novo\_elemento}(x,y) \gets exemplo(x,y) + gap*\textit{diferença}$\;
+%       }
+%       $S \gets S \cup \textit{novo\_elemento}$\;
+%       }
+%     \end{algorithm}
+%   \end{block}
+%   }
+% \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Desbalanceamento de classes --- SMOTE}
   \setstretch{1.2}
@@ -706,6 +721,7 @@ Universidade de São Paulo \\ }
     \begin{center}
       \includegraphics[width=.5\linewidth]{{figuras/smote}}
     \end{center}
+    \caption{SMOTE}
   \end{figure}
   \justifying
   \begin{itemize}
@@ -1266,8 +1282,7 @@ Universidade de São Paulo \\ }
   \end{table}
 \end{frame}
 %-----------------------------------------------------------------------------
-\subsection{Considerações}
-\begin{frame}{Considerações}
+\begin{frame}{Discussão}
   [TODO]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
