@@ -377,7 +377,7 @@ Universidade de São Paulo \\ }
     \begin{itemize}
       \item Métodos de extração preparados para receber imagens em um canal de cor ($2^3$ = 8 bits);
       \item O pipeline de reconhecimento de imagens inclui a conversão de imagens coloridas em imagens com apenas um canal;
-      \item Essa pesquisa explora essa etapa para produzir vetores mais compactos.
+      \item Explorar essa etapa para produzir vetores mais compactos.
       \item Diferentes parâmetros de quantização combinados com quatro métodos de extração de cor e um de textura.
     \end{itemize}
   \end{block}
@@ -437,7 +437,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/fig_quantMSB.png}}
       }
     \end{center}
-    \caption{Versões de um canal de cor com 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos. Os métodos \emph{Luminância'} e MSB apresentam uma melhor discriminação entre cores.}
+    \caption{Os métodos \emph{Luminância'} e MSB apresentam uma melhor discriminação entre cores. A versão de um canal de cor possui 232 intensidades únicas para o método (e) MSB e 184 intensidades para os demais métodos.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -449,7 +449,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_quantizationexample.jpg}}
     \end{center}
-    \caption{Imagens da base \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB. Com 256, 128 e 64 há preservação das cores. Com apenas 32, perda considerável de informação nas regiões com pouco contraste.}
+    \caption{Imagens da base \emph{Caltech101-600} com variações no parâmetro de cor utilizando o método MSB. Com 256, 128 e 64 há preservação das cores. Com apenas 32, há perda considerável de informação nas regiões com pouco contraste.}
   \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -556,7 +556,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotBIC.png}}
     \end{center}
-    \caption{Acurácia média utilizando MSB e BIC considerando 256, 128, 64 e 32 cores. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores.}
+    \caption{Acurácia média utilizando MSB e BIC. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -580,7 +580,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotMSBLPP.png}}
     \end{center}
-    \caption{Acurácia para os método MSB (quantização), LPP (redução de dimensionalidade) e BIC (extração de características). A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade.}
+    \caption{Acurácia para os método MSB, LPP e BIC. A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -592,7 +592,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_full.png}}
     \end{center}
-    \caption{Acurácia para \emph{Gleam}, \emph{Intensidade'}, \emph{Luminância'} e MSB. O vetor de características resultante com $D=2310$ sofreu então redução da dimensionalidade com o método LPP para $d = 1160$, $582$, $294$ e $150$.}
+    \caption{Acurácia para \emph{Gleam}, \emph{Intensidade'}, \emph{Luminância'} e MSB. O vetor de características resultante com $D=2310$ sofreu redução da dimensionalidade com o método LPP para $d = 1160$, $582$, $294$ e $150$.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
