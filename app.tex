@@ -692,7 +692,7 @@ Universidade de São Paulo \\ }
   \justifying
   \begin{itemize}
     \item Aumentar o número de elementos;
-    \begin{block}{SMOTE}
+    \begin{block}{SMOTE (Chawla et al., 2002)}
       \setlength\leftmargini{1em}
       \begin{itemize}
         \item Multiplica a diferença entre o vetor de características de um elemento e do seu vizinho mais próximo por um número $0 \leq x \leq 1$;
@@ -746,7 +746,7 @@ Universidade de São Paulo \\ }
   \begin{itemize}
     \item Rebalancear ao gerar novos elementos, ao invés de replicá-los;
     \item Sobre os vetores de características previamente extraídos;
-    \item \textbf{Diferentes estratégias para criar exemplos sintéticos podem melhorar a performance da classificação} (Chawla et al., 2002);
+    \item \textbf{Diferentes estratégias para criar exemplos sintéticos podem melhorar a performance da classificação};
     \item Utilizado para comparação.
   \end{itemize}
 \end{frame}
@@ -1293,7 +1293,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item Modificar parâmetros dos métodos e verificar a diferença da acurácia com os parâmetros padrões;
-    \item Ligeira melhora: entre ~ 1\% e 3\%;
+    \item Ligeira melhora: entre 1\% e 3\%;
     \item No geral, consegue superar os resultados do SMOTE.
   \end{itemize}
 \end{frame}
@@ -1303,7 +1303,6 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   [TODO]
   \begin{table}
-    \url{http://caffe.berkeleyvision.org/}
     \caption{Treinamento das classes praia e montanha da base COREL-1000.}
     \begin{tabular}{c|c}
       Bases    &   Medida F1 \\ \hline
