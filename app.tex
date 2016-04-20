@@ -3,7 +3,7 @@
 \usepackage{float}
 \usepackage[position=b]{subfig}
 \usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
-\AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}% Resets subfigure counter at start of figure environment
+% \AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}% Resets subfigure counter at start of figure environment
 
 \mode<presentation>{
   %   \usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
@@ -231,6 +231,7 @@ Universidade de São Paulo \\ }
   \setstretch{1.2}
   \begin{itemize}
     \justifying
+    \item \textit{Redução da complexidade no ínicio do reconhecimento};
     \item Apesar de fazer parte do pipeline, muitos estudos não descrevem o método de quantização e seus parâmetros;
     \item Quantização pode impactar a classificação (Kanan e Cottrell, 2012);
     \item Ao negligenciar essa etapa, perde-se a oportunidade de redução da dimensionalidade do vetor de características e/ou do tempo de execução das etapas posteriores.
@@ -247,7 +248,7 @@ Universidade de São Paulo \\ }
     \item Imagens representam eventos importantes mas menos frequentes;
     \item Métodos de transformação do espaço e de
     classificação assumem que a base está balanceada;
-    \item Normalmente esses sistemas dão preferência à predição da classe majoritária, prejudicando a classificação da minoritária.
+    \item Preferência à predição da classe majoritária, prejudicando a classificação da minoritária.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -258,12 +259,12 @@ Universidade de São Paulo \\ }
   % \setstretch{1.2}
   \begin{itemize}
     \item Synthetic Minority Over-sampling Technique (SMOTE) propõe a geração de exemplos artificiais a partir dos vetores de características originais das classes minoritárias;
-    \item Não há registro conhecido de um estudo dessas técnicas em dados de informação visual para o rebalanceamento de classes;
-    \item Foco: \textit{geração de imagens artificiais a partir do processamento das imagens da classe minoritária.}
+    \item Não existem estudos dessas técnicas em dados de informação visual para o rebalanceamento de classes;
+    \item \textit{Geração de imagens artificiais a partir do processamento das imagens da classe minoritária.}
   \end{itemize}
   \begin{figure}[htbp]
     \begin{center}
-      \includegraphics[width=.3\linewidth]{figuras/imagemgerada.jpg}
+      \includegraphics[width=.35\linewidth]{figuras/imagemgerada.jpg}
       \caption{Imagem artificialmente gerada.}
     \end{center}
   \end{figure}
@@ -279,7 +280,7 @@ Universidade de São Paulo \\ }
     \begin{itemize}
       \item Juntamente com um método de quantização apropriado;
       \item Antes da extração de características;
-      \item \textit{Pode permitir obter vetores de características mais compactos e com maior capacidade de discriminação entre classes.}
+      \item \textit{Obter vetores de características mais compactos e com maior capacidade de discriminação entre classes.}
     \end{itemize}
   \end{block}
   \begin{block}{Geração de imagens artificiais}
@@ -306,12 +307,12 @@ Universidade de São Paulo \\ }
 %   \end{block}
 % \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Contribuições específicas}
-  \setstretch{1.5}
+\begin{frame}{Contribuições}
+  \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
   \begin{itemize}
-    \item Demostrar que é possível obter vetores de características compactos e efetivos ao extrair imagens quantizadas;
+    \item Demostrar que é possível obter vetores de características compactos e efetivos ao extrair imagens quantizadas.
     \begin{itemize}
       \item Custo computacional baixo;
       \item Reduzindo o tamanho do vetor após a quantização e posterior extração de características;
@@ -320,8 +321,8 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Contribuições específicas}
-  \setstretch{1.5}
+\begin{frame}{Contribuições}
+  \setstretch{1.2}
   \setlength\leftmargini{1em}
   \justifying
   \begin{itemize}
@@ -377,7 +378,7 @@ Universidade de São Paulo \\ }
     \begin{itemize}
       \item Métodos de extração preparados para receber imagens em um canal de cor ($2^3$ = 8 bits);
       \item O pipeline de reconhecimento de imagens inclui a conversão de imagens coloridas em imagens com apenas um canal;
-      \item Explorar essa etapa para produzir vetores mais compactos.
+      \item Explorar essa etapa para produzir vetores mais compactos;
       \item Diferentes parâmetros de quantização combinados com quatro métodos de extração de cor e um de textura.
     \end{itemize}
   \end{block}
@@ -411,7 +412,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/MSB_gray.png}}
       }
     \end{center}
-    % \caption{Conversão para a escala de cinza com os métodos utilizados nessa pesquisa. Os métodos resultam em uma imagem com 8 bits (256 cores).}
+    \caption{Conversão para a escala de cinza.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -544,11 +545,12 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=.75\linewidth]{\detokenize{figuras/quantization/fig_results_individual.png}}
     \end{center}
-    \caption{Acurácia utilizando 256, 128, 64, 32, 16 e 8 cores.}
+    \caption{Acurácia média utilizando 256, 128, 64, 32, 16 e 8 cores.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimentos --- Resultados}
+  \justifying
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -556,7 +558,7 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotBIC.png}}
     \end{center}
-    \caption{Acurácia média utilizando MSB e BIC. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à acurácia de 256 cores.}
+    \caption{Acurácia média utilizando MSB e BIC. Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à 256 cores. Converter para 64 cores prova ser boa escolha de processamento.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -581,13 +583,13 @@ Universidade de São Paulo \\ }
       \item Quantização;
       \item LPP.
     \end{itemize}
-    \item Imagem de entrada convertida para escala de cinza com MSB em 256 cores;
-    \item Extração de características BIC;
+    \item Imagem convertida para escala de cinza com MSB em 256 cores;
+    \item Extração de características com o método BIC;
     \item Vetor de entrada para LPP:
       \begin{itemize}
-        \item Produzir versões reduzidas de 256, 128 e 64 dimensões;
+        \item Produzir versões reduzidas de 256, 128 e 64 dimensões.
       \end{itemize}
-    \item Comparação da acurácia dos vetores reduzidos pela quantização;
+    \item Comparação da acurácia dos vetores reduzidos pela quantização.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -599,11 +601,11 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_individual_boxplotMSBLPP.png}}
     \end{center}
-    \caption{Acurácia para os método MSB, LPP e BIC. A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade.}
+    \caption{Acurácia para os método MSB, LPP e BIC. A comparação do LPP versus MSB foi realizada com a mesma dimensionalidade. Se utilizado um número de cores correto, é possível manter ou melhorar a acurácia.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos --- Resultados da concatenação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -615,7 +617,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos --- Resultados da concatenação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -623,11 +625,11 @@ Universidade de São Paulo \\ }
       \centering
       \includegraphics[width=\linewidth]{\detokenize{figuras/quantization/fig_results_full_boxplot.png}}
     \end{center}
-    \caption{Comparação da acurácia com o uso da projeção LPP e o método MSB para quantização das imagens com o objetivo de redução de dimensionalidade.}
+    \caption{Comparação da acurácia com o uso da projeção LPP e o método MSB para quantização das imagens com o objetivo de redução de dimensionalidade. Utilizar 64 cores é indicado como uma boa escolha do parâmetro de quantização}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos --- Resultados da concatenação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -663,12 +665,12 @@ Universidade de São Paulo \\ }
     \item Número desbalanceado de exemplos. Majoritárias x minoritárias.
     \item Abordagens:
     \begin{itemize}
-      \item \emph{Modificar métodos de aprendizagem:} adicionar funções de custo na classificação;
       \item \emph{Pré-processamento ao reamostrar os dados:}
       \begin{itemize}
         \item Aumentar a minoritária;
         \item Diminuir a majoritária.
       \end{itemize}
+      \item \emph{Modificar métodos de aprendizagem:} adicionar funções de custo na classificação;
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -679,10 +681,10 @@ Universidade de São Paulo \\ }
   \justifying
   \begin{itemize}
     \item Diminuir o número de elementos do conjunto;
-    \item Podem remover informações essenciais dos dados originais;
     \item Eliminar elementos distantes da fronteira de decisão;
-    \item Normalmente apresentam resultados piores.
-    % \item Não há melhor para todos os cenários.
+    \item Podem remover informações essenciais dos dados originais;
+    \item Normalmente apresentam resultados piores;
+    \item Não há melhor para todos os cenários.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -698,7 +700,6 @@ Universidade de São Paulo \\ }
         \item Multiplica a diferença entre o vetor de características de um elemento e do seu vizinho mais próximo por um número $0 \leq x \leq 1$;
         \item Adiciona ao vetor original, criando um novo elemento entre os dois vetores originais;
         \item Aprendido como exemplo da classe minoritária;
-        \item Força uma região de decisão maior e mais geral;
       \end{itemize}
     \end{block}
   \end{itemize}
@@ -744,8 +745,9 @@ Universidade de São Paulo \\ }
   \end{figure}
   \justifying
   \begin{itemize}
+    \item Força uma região de decisão maior e mais geral;
     \item Rebalancear ao gerar novos elementos, ao invés de replicá-los;
-    \item Sobre os vetores de características previamente extraídos;
+    % \item Sobre os vetores de características previamente extraídos;
     \item \textbf{Diferentes estratégias para criar exemplos sintéticos podem melhorar a performance da classificação};
     \item Utilizado para comparação.
   \end{itemize}
@@ -805,7 +807,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.48\linewidth]{\detokenize{figuras/artificial-generation/methods/blur-b.png}}
       }
     \end{center}
-    \caption{A imagem (b) possui detalhes borrados, porém preservando as bordas.}
+    \caption{Filtro bilateral. A imagem (b) possui detalhes borrados, porém preservando as bordas.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -821,7 +823,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.48\linewidth]{\detokenize{figuras/artificial-generation/methods/unsharp-b.png}}
       }
     \end{center}
-    \caption{A imagem resultante (b) apresenta saliência nas transições de intensidade.}
+    \caption{\textit{Unsharp mask}. A imagem resultante (b) apresenta saliência nas transições de intensidade.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -837,7 +839,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.48\linewidth]{\detokenize{figuras/artificial-generation/methods/noise-b.png}}
       }
     \end{center}
-    \caption{Regiões claras de (b) apresentam mais ruído que as regiões escuras.}
+    \caption{Ruído de Poisson. Regiões claras de (b) apresentam mais ruído que as regiões escuras.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -856,7 +858,7 @@ Universidade de São Paulo \\ }
       \includegraphics[height=2.8cm,keepaspectratio]{\detokenize{figuras/artificial-generation/methods/smote-c.png}}
       }
     \end{center}
-    \caption{É possível notar a sobreposição de uma ``sombra'' da Figura (b) em (a).}
+    \caption{Smote ao nível de pixels. É possível notar a sobreposição de uma ``sombra'' da Figura (b) em (a).}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -875,7 +877,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/artificial-generation/methods/blend-c.png}}
       }
     \end{center}
-    \caption{A imagem (c) representa a mistura de (a) e (b).}
+    \caption{Soma ponderada de duas imagens. A imagem (c) representa a mistura de (a) e (b).}
     \label{fig:gen:blend}
   \end{figure}
 \end{frame}
@@ -895,7 +897,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/artificial-generation/methods/threshold-c.png}}
       }
     \end{center}
-    \caption{A imagem resultante (c) é uma composição do \textit{foreground} da primeira imagem sobre o \textit{background} da segunda.}
+    \caption{Mistura de \textit{thresholds}. A imagem resultante (c) é uma composição do \textit{foreground} da primeira imagem sobre o \textit{background} da segunda.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -914,7 +916,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
       }
     \end{center}
-    \caption{A imagem resultante (c) apresenta a região saliente de (b) sobreposta em (a).}
+    \caption{Combinação de saliência. A imagem resultante (c) apresenta a região saliente de (b) sobreposta em (a).}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -936,18 +938,12 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{block}{}
     \justifying
-    \begin{itemize}
-      \item Comparar a classificação:
+      Comparar a classificação:
       \begin{itemize}
         \item Base original;
-        \item Base realçada pelo método proposto.
+        \item Geração de imagens artificiais com os métodos anteriores;
+        \item Técnica de sobreamostragem SMOTE.
       \end{itemize}
-      \item Comparar os métodos:
-      \begin{itemize}
-        \item Geração artificial;
-        \item Técnicas de sobreamostragem disponíveis na literatura, como o SMOTE.
-      \end{itemize}
-    \end{itemize}
   \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -989,39 +985,39 @@ Universidade de São Paulo \\ }
 % \end{block}
 % \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Experimento: duas classes discriminadas}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  \begin{figure}
-    \begin{center}
-      \subfloat[Elephant]{
-      \includegraphics[width=0.48\linewidth]{\detokenize{figuras/corel_original4.jpg}}
-      }
-      \subfloat[Horse]{
-      \includegraphics[width=0.48\linewidth]{\detokenize{figuras/cavalo-original2.png}}
-      }
-      \caption{Originalmente da base de imagens Corel-1000, a principal característica dessas imagens é a diferença de cores, contendo pequeno grau de sobreposição.}
-    \end{center}
-  \end{figure}
+  \begin{itemize}
+  \item Visualização do espaço obtido após a geração de imagens;
+  \item Verificar a definição da classe minoritária em relação ao espaço original;
+  \item Analisar SMOTE ou a geração de imagens em relação à distribuição original dos dados.
+  \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Protocolo --- Visualização}
+\begin{frame}[allowframebreaks]{Protocolo --- Visualização}
 \justify
-  \setstretch{1.2}
+  \setstretch{1.5}
   \setlength\leftmargini{1em}
   \begin{enumerate}
-    \item \textbf{Imagens originais}: classes \emph{Horse} e \emph{Elephant} com 100 imagens cada;
-
-    \item \textbf{Desbalanceamento}: para o sub-experimento de visualização, cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \emph{Horse} sofreu remoção de 50\% do seu conjunto de treino;
-  \end{enumerate}
-\end{frame}
-%-----------------------------------------------------------------------------
-\begin{frame}{Protocolo --- Visualização}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \begin{enumerate}
+    \item \textbf{Imagens originais}: \emph{Horse} e \emph{Elephant} com 100 imagens cada;
+    \begin{figure}
+      \begin{center}
+        \subfloat[Elephant]{
+        \includegraphics[width=0.4\linewidth]{\detokenize{figuras/corel_original4.jpg}}
+        }
+        \subfloat[Horse]{
+        \includegraphics[width=0.4\linewidth]{\detokenize{figuras/cavalo-original2.png}}
+        }
+        \caption{Originalmente da base de imagens Corel-1000, a principal característica dessas imagens é a diferença de cores, contendo pequeno grau de sobreposição.}
+      \end{center}
+    \end{figure}
+%%%%%%%%%%%%%%%%%%
+    \item \textbf{Desbalanceamento}: cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \emph{Horse} sofreu remoção de 50\% do seu conjunto de treino;
+    \framebreak
+%%%%%%%%%%%%%%%%%%
     \item \textbf{Método para geração artificial}: \emph{mistura ponderada};
-  \end{enumerate}
+
   \begin{figure}
     \begin{center}
       \subfloat[Original]{
@@ -1033,26 +1029,21 @@ Universidade de São Paulo \\ }
       \subfloat[Imagem artificial]{
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/cavalo-blend.png}}
       }
-      \caption{Geração artificial de imagens com o método de \emph{mistura} para as classes \emph{Elephant} e \emph{Horse} da base Corel-1000. A imagem resultante (c) é composta pela mistura de (a) e (b).}
+      \caption{Mistura ponderada. A imagem resultante (c) é composta pela mistura de (a) e (b).}
     \end{center}
   \end{figure}
-\end{frame}
-%-----------------------------------------------------------------------------
-\begin{frame}{Protocolo --- Visualização}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \begin{enumerate}
+
     \item \textbf{Conversão em escala de cinza}: \emph{Intensidade'};
 
     \item \textbf{Extração de características}: BIC;
-
+%%%%%%%%%%%%%%%%%%
     \item \textbf{Classificação}: KNN com $K=1$;
 
     \item \textbf{Projeção multidimensional para visualização}: projetados os dois componentes principais encontrados ao aplicar PCA nos vetores de características.
   \end{enumerate}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1068,7 +1059,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1084,7 +1075,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1100,18 +1091,18 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item A geração de imagens melhorou a definição da classe minoritária;
     \item Se assemelhou à distribuição dos dados originais;
-    \item SMOTE, ao interpolar os vetores originais, criou exemplos em regiões que pertencem a outra classe;
+    \item Ao interpolar os vetores originais o SMOTE pode criar exemplos em regiões que pertencem a outra classe;
     \item Além disso, não extrapolou a sua região.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1130,7 +1121,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1149,7 +1140,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento}
+\begin{frame}{Experimento --- Visualização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1160,7 +1151,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos}
+\begin{frame}{Experimentos --- Validação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -1382,12 +1373,24 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \justifying
   \begin{itemize}
-  \item Estado da arte de extração e classificação de imagens corresponde ao uso de Convolutional Neural Network (CNN):
+  \item Análise dos espaços encontrados para os diferentes métodos de geração;
+  \item O impacto em extratores de características pode sugerir quais são as características latentes;
+  \item Outros métodos para geração podem ser sugeridos;
+  \item SMOTE visual pode ser realizado com imagens próximas ao invés de aleatórias.
+ \end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Trabalhos futuros --- Geração de imagens}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \justifying
+  \begin{itemize}
+  \item Estado da arte de extração e classificação de imagens corresponde ao uso de Rede Neural Convolucional (SCHMIDHUBER, 2014):
     \begin{itemize}
     \item Aprender quais são as melhores características que diferenciam as classes de imagens;
     \item Podem indicar possíveis operações para a geração de imagens artificiais.
     \end{itemize}
-  \item Analisar a memória associativa aprendida com uma máquina de Boltzmann restrita:
+  \item Analisar a memória associativa aprendida com uma máquina de Boltzmann restrita (FISCHER; IGEL, 2014):
     \begin{itemize}
     \item Escolher para qual imagem original utilizar, ao invés do método aleatório utilizado nos resultados preliminares;
     \item Verificação da relevância das imagens geradas.
