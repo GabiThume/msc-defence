@@ -175,36 +175,23 @@ Universidade de São Paulo \\ }
   \end{frame}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Introdução}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \justifying
-  \begin{itemize}
-    \item Classificação de imagens: predizer a classe;
-    \pause
-    \item Extração de características: vetores representativos;
-    \pause
-    \item Algoritmos de aprendizado de máquina: modelo de representação;
-    \pause
-    \item Generalização: classificar novos exemplos;
-    \pause
-    \item Porém, existem características que não são suficientes para a diferenciação entre as classes;
-    % \item Encontrar as características que melhor discriminam as classes.
-  \end{itemize}
-\end{frame}
-%-----------------------------------------------------------------------------
-\subsection{Motivação}
-\begin{frame}{Motivação}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \justifying
-  \begin{itemize}
-    \item Maior esforço ao operar no espaço de características já obtidas;
-    \item Transformações do espaço ou sistemas complexos de classificação para lidar com as deficiências das características extraídas;
-    \item Características que podem ser exploradas além dos métodos clássicos;
-    \item Investigar métodos de \textit{processamento e preparação de imagens antes da extração}.
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Introdução}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \justifying
+%   \begin{itemize}
+%     \item Classificação de imagens: predizer a classe;
+%     \pause
+%     \item Extração de características: vetores representativos;
+%     \pause
+%     \item Algoritmos de aprendizado de máquina: modelo de representação;
+%     \pause
+%     \item Generalização: classificar novos exemplos;
+%     \pause
+%     \item Porém, existem características que não são suficientes para a diferenciação entre as classes;
+%     % \item Encontrar as características que melhor discriminam as classes.
+%   \end{itemize}
+% \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}[plain]{Motivação}
   \setstretch{1.2}
@@ -213,6 +200,20 @@ Universidade de São Paulo \\ }
     \includegraphics[height=0.9\textheight]{figuras/flow.png}
     \caption{Etapas canônicas do reconhecimento de padrões.}
   \end{figure}
+\end{frame}
+%-----------------------------------------------------------------------------
+\subsection{Motivação}
+\begin{frame}{Motivação}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \justifying
+  \begin{itemize}
+    \item Maior esforço ao operar no espaço de características já obtidas (extração manual);
+    \item Transformações do espaço ou sistemas complexos de classificação para lidar com as deficiências das características extraídas;
+    \item Tais métodos não foram projetados para serem utilizados juntamente com \textit{Deep Learning};
+    \item Características que podem ser exploradas além dos métodos clássicos;
+    \item Investigar métodos de \textit{processamento e preparação de imagens antes da extração}.
+  \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
 % \begin{frame}{Motivação --- Características Latentes}
@@ -231,6 +232,14 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \justifying
   \setstretch{1.2}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivação}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \begin{block}{Quantização}
+  \justifying
+  \setstretch{1.2}
   \begin{itemize}
     \justifying
     \item Redução da complexidade no ínicio do reconhecimento;
@@ -238,6 +247,7 @@ Universidade de São Paulo \\ }
     \item Quantização pode impactar a classificação (Kanan e Cottrell, 2012);
     \item Ao negligenciar essa etapa, perde-se a \textit{oportunidade de redução da dimensionalidade do vetor de características e/ou do tempo de execução das etapas posteriores.}
   \end{itemize}
+  \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Motivação --- Desbalanceamento de classes}
@@ -389,35 +399,35 @@ Universidade de São Paulo \\ }
 
 \subsection{Contextualização}
 %-----------------------------------------------------------------------------
-\begin{frame}{Pré-processamento de Imagens --- Quantização}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \begin{figure}
-    \begin{center}
-      \subfloat[Original]{
-      \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Lenna.png}}
-      }
-      \subfloat[Intensidade']{
-      \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Intensity_gray.png}}
-      }
-      \subfloat[Gleam]{
-      \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Gleam_gray.png}}
-      }
-    \end{center}
-    \begin{center}
-      \subfloat[Luminância']{
-      \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Luminance_gray.png}}
-      }
-      % \subfloat[Luma]{
-      % \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Luma_gray.png}}
-      % }
-      \subfloat[MSB]{
-      \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/MSB_gray.png}}
-      }
-    \end{center}
-    \caption{Conversão para a escala de cinza.}
-  \end{figure}
-\end{frame}
+% \begin{frame}{Pré-processamento de Imagens --- Quantização}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \begin{figure}
+%     \begin{center}
+%       \subfloat[Original]{
+%       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Lenna.png}}
+%       }
+%       \subfloat[Intensidade']{
+%       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Intensity_gray.png}}
+%       }
+%       \subfloat[Gleam]{
+%       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Gleam_gray.png}}
+%       }
+%     \end{center}
+%     \begin{center}
+%       \subfloat[Luminância']{
+%       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Luminance_gray.png}}
+%       }
+%       % \subfloat[Luma]{
+%       % \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/Luma_gray.png}}
+%       % }
+%       \subfloat[MSB]{
+%       \includegraphics[width=.2\linewidth]{\detokenize{figuras/quantization/MSB_gray.png}}
+%       }
+%     \end{center}
+%     \caption{Conversão para a escala de cinza.}
+%   \end{figure}
+% \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Quantização de imagens}
   \setstretch{1.2}
@@ -510,20 +520,20 @@ Universidade de São Paulo \\ }
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimentos --- Protocolo}
-  \setstretch{1.2}
+  % \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{block}{}
     \justifying
     \begin{enumerate}
-      \item \textbf{Quantização}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB.
-      \item \textbf{Extração de características}
+      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB.
+      \item \textbf{Extração de características\footnote{Penatti et al.}}:
       \begin{itemize}
         \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
         \item \textit{Border-Interior Classification} (BIC): vizinhança de quatro pixels;
         \item \textit{Color Coherence Vector} (CCV): $\mathit{threshold} = 25$;
         \item Haralick-6: pixel vizinho à direita.
       \end{itemize}
-      \item \textbf{Redução da dimensionalidade}: \textit{Locality Preserving Projections} (LPP) com $d=$ 128, 64, 32 e 16 dimensões e $k=$ 10 vizinhos.
+      \item \textbf{Redução da dimensionalidade\footnote{Zhuo et al.}}: \textit{Locality Preserving Projections} (LPP) com $k=$ 10 vizinhos.
       \item \textbf{Classificação}: \textit{Support Vector Machines} (SVM) com \textit{grid search} no conjunto de treinamento.
     \end{enumerate}
   \end{block}
@@ -540,7 +550,7 @@ Universidade de São Paulo \\ }
 %   \end{block}
 % \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -552,7 +562,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos --- Características de cor}
   \justifying
   \setstretch{1.2}
   \setlength\leftmargini{1em}
@@ -565,7 +575,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados}
+\begin{frame}{Experimentos --- Características de textura}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -591,7 +601,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados da quantização versus LPP}
+\begin{frame}{Experimentos --- Quantização versus LPP}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -603,18 +613,18 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Concatenação}
+\begin{frame}{Experimentos --- Concatenação dos vetores}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{itemize}
-    \item Número de dimensões de um único descritor pode ser baixo;
+    \item Número de dimensões de um único descritor pode ser considerado baixo;
     \item Imagens convertidas em escala de cinza com 256 cores;
     \item Descritas por todos os métodos e suas características concatenadas em um vetor $D=2310$;
-    \item Redução de dimensionalidade com LPP para $d=$ 1160, 582, 294 e 150. Mesmas dimensões de utilizar quantização como redução.
+    \item Redução de dimensionalidade com LPP para $d=$ 1160, 582, 294 e 150;
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados da concatenação}
+\begin{frame}{Experimentos --- LPP}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -626,7 +636,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados da concatenação}
+\begin{frame}{Experimentos --- Quantização + LPP}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -638,7 +648,7 @@ Universidade de São Paulo \\ }
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Resultados da concatenação}
+\begin{frame}{Experimentos --- Concatenação dos vetores}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{figure}
@@ -657,8 +667,10 @@ Universidade de São Paulo \\ }
     \justifying
     \begin{itemize}
       \item Aplicar a quantização na etapa de pré-processamento pode reduzir significativamente a dimensionalidade, enquanto melhora ou mantém a classificação do sistema;
-      \item Inclusive quando comparado com métodos mais complexos para a redução da dimensionalidade;
-      \item O vetor concatenado possui $9C + 6$ dimensões e o tempo de extração de todas as características é $f(N)=42N+6C^2$. Utilizar 64 cores ao invés de 256 para 100 imagens corresponde a uma redução de 74,6\% do número de instruções.
+      % \item Inclusive quando comparado com métodos mais complexos para a redução da dimensionalidade;
+      \item Vetor concatenado: $9C+6$ dimensões;
+      \item Tempo de extração das características: $f(N)=42N+6C^2$;
+      \item Exemplo: utilizar 64 cores ao invés de 256 para 100 imagens corresponde a uma redução de 74,6\% do número de instruções.
     \end{itemize}
   \end{block}
 \end{frame}
@@ -754,7 +766,6 @@ Universidade de São Paulo \\ }
   \end{figure}
   \justifying
   \begin{itemize}
-    \item Força uma região de decisão maior e mais geral;
     \item Rebalancear ao gerar novos elementos, ao invés de replicá-los;
     % \item Sobre os vetores de características previamente extraídos;
     \item \textbf{Diferentes estratégias para criar exemplos sintéticos podem melhorar a performance da classificação};
@@ -934,8 +945,13 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{figure}
     \begin{center}
-      \centering
-      \includegraphics[width=0.6\linewidth]{\detokenize{figuras/artificial-generation/methods/composition.png}}
+      \subfloat[Imagem artificial]{
+        \includegraphics[width=0.25\linewidth]{\detokenize{figuras/artificial-generation/methods/composition4.png}}
+      }
+      \hspace{1em}
+      \subfloat[Imagem artificial]{
+        \includegraphics[width=0.6\linewidth]{\detokenize{figuras/artificial-generation/methods/composition.png}}
+      }
     \end{center}
     \caption{Várias imagens, dispostas em um mosaico, formam a imagem resultante. Cada célula do mosaico sofre uma operação, sorteada no momento da geração da imagem.}
   \end{figure}
@@ -1004,12 +1020,28 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}[allowframebreaks]{Protocolo --- Visualização}
+\begin{frame}{Experimentos --- Protocolo}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \begin{block}{}
+    \justifying
+    \begin{enumerate}
+    \item \textbf{Imagens originais}: \emph{Horse} e \emph{Elephant} com 100 imagens cada;
+    \item \textbf{Desbalanceamento}: cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \emph{Horse} sofreu remoção de 50\% do seu conjunto de treino;
+    \item \textbf{Método para geração de imagens}: \emph{mistura ponderada};
+    \item \textbf{Conversão em escala de cinza}: \emph{Intensidade'};
+    \item \textbf{Extração de características}: BIC;
+    \item \textbf{Classificação}: KNN;
+    \item \textbf{Projeção multidimensional para visualização}: projetados os dois componentes principais encontrados ao aplicar PCA nos vetores de características.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Experimentos -- Visualização}
 \justify
   \setstretch{1.5}
   \setlength\leftmargini{1em}
-  \begin{enumerate}
-    \item \textbf{Imagens originais}: \emph{Horse} e \emph{Elephant} com 100 imagens cada;
+    \textbf{Imagens originais}
     \begin{figure}
       \begin{center}
         \subfloat[Elephant]{
@@ -1021,11 +1053,13 @@ Universidade de São Paulo \\ }
         \caption{Originalmente da base de imagens Corel-1000, a principal característica dessas imagens é a diferença de cores, contendo pequeno grau de sobreposição.}
       \end{center}
     \end{figure}
-%%%%%%%%%%%%%%%%%%
-    \item \textbf{Desbalanceamento}: cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \emph{Horse} sofreu remoção de 50\% do seu conjunto de treino;
-    \framebreak
-%%%%%%%%%%%%%%%%%%
-    \item \textbf{Método para geração de imagens}: \emph{mistura ponderada};
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Experimentos -- Visualização}
+  \justify
+    \setstretch{1.5}
+    \setlength\leftmargini{1em}
+    \textbf{Método para geração de imagens}
 
   \begin{figure}
     \begin{center}
@@ -1041,15 +1075,6 @@ Universidade de São Paulo \\ }
       \caption{Mistura ponderada. A imagem resultante (c) é composta pela mistura de (a) e (b).}
     \end{center}
   \end{figure}
-
-    \item \textbf{Conversão em escala de cinza}: \emph{Intensidade'};
-
-    \item \textbf{Extração de características}: BIC;
-%%%%%%%%%%%%%%%%%%
-    \item \textbf{Classificação}: KNN com $K=1$;
-
-    \item \textbf{Projeção multidimensional para visualização}: projetados os dois componentes principais encontrados ao aplicar PCA nos vetores de características.
-  \end{enumerate}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimento --- Visualização}
@@ -1169,6 +1194,28 @@ Universidade de São Paulo \\ }
     \caption{Validação \textit{k-fold} com o objetivo de prover mais robustez ao sistema.}
 % Primeiramente as imagens são separadas de forma aleatória em $k = 5$ \textit{folds} em cada classe. Em seguida, as duas classes compõem 40 configurações, consistindo em todas as possibilidades de: um fold para teste e os outros como treino para a classe que permanecerá balanceada; e um de teste e apenas um de treino para a classe que os métodos de processamento irão rebalancear. Tal validação é repetida para todas as classes, ou seja, cada classe tem a possibilidade de ser a minoritária.}
   \end{figure}
+\end{frame}
+%-----------------------------------------------------------------------------
+\begin{frame}{Experimentos --- Protocolo}
+  \setstretch{1.2}
+  \setlength\leftmargini{1em}
+  \begin{block}{}
+    \justifying
+    \begin{enumerate}
+      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'}, \emph{Luma} e MSB.
+      \item \textbf{Extração de características\footnote{Penatti et al.}}:
+      \begin{itemize}
+        \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
+        \item \textit{Border-Interior Classification} (BIC): vizinhança de quatro pixels;
+        \item \textit{Color Coherence Vector} (CCV): $\mathit{threshold} = 25$;
+        \item Haralick-6: pixel vizinho à direita.
+        \item \textit{Histogram of Oriented Gradients} (HOG):;
+        \item \textit{Local Binary Patterns} (LBP) com padrões uniformes:;
+      \end{itemize}
+      \item \textbf{Classificação}: KNN com $K=1$;
+      \item \textbf{Métrica estatística}: F1-Score;
+    \end{enumerate}
+  \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimento}
@@ -1303,7 +1350,7 @@ Universidade de São Paulo \\ }
   \begin{table}
     \caption{Treinamento de uma Rede Neural de Convolução das classes \textit{Horse} e \textit{Elephant} da COREL-1000.}
     \begin{tabular}{c|c}
-      Base    &   Medida F1 \\ \hline
+      Base    &   F1-Score \\ \hline
       Original balanceada     &   0.96  \\
       Desbalanceada           &   0.91  \\
       Rebalanceada com geração de imagens artificiais &  0.97  \\
@@ -1355,7 +1402,8 @@ Universidade de São Paulo \\ }
   \begin{block}{}
     \justifying
     \tiny{
-    Ponti, M.; Nazaré, T; Thumé, G. \textbf{Image quantization as a dimensionality reduction procedure in color and texture feature extraction}, submitted to Neurocomputing, 2014.}
+      Ponti, Moacir, Tiago S. Nazaré, and Gabriela S. Thumé. \textbf{"Image quantization as a dimensionality reduction procedure in color and texture feature extraction."} Neurocomputing 173 (2016): 385-396.
+    }
   \end{block}
   \begin{figure}
     \begin{center}
@@ -1363,8 +1411,7 @@ Universidade de São Paulo \\ }
     \end{center}
   \end{figure}
 \end{frame}
-%-----------------------------------------------------------------------------
-%-----------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trabalhos futuros}
 \begin{frame}{Trabalhos futuros --- Quantização}
   \setstretch{1.2}
@@ -1374,7 +1421,7 @@ Universidade de São Paulo \\ }
     \item Estudo da influência da quantização em outros métodos de extração de características;
     \item MSB se sobressaiu nos resultados do uso da quantização:
     \begin{itemize}
-      \item Variaçoes desse método podem produzir melhores mapas de cor para a etapa de reconhecimento.
+      \item Variações desse método podem produzir melhores mapas de cor para a etapa de reconhecimento.
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -1403,7 +1450,7 @@ Universidade de São Paulo \\ }
     \end{itemize}
   \item Analisar a memória associativa aprendida com uma máquina de Boltzmann restrita (FISCHER; IGEL, 2014):
     \begin{itemize}
-    \item Escolher para qual imagem original utilizar, ao invés do método aleatório utilizado nos resultados preliminares;
+    % \item Escolher para qual imagem original utilizar, ao invés do método aleatório utilizado nos resultados;
     \item Verificação da relevância das imagens geradas.
     \end{itemize}
   \end{itemize}
@@ -1459,5 +1506,4 @@ Universidade de São Paulo \\ }
 \begin{frame}[plain]
   \maketitle
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
