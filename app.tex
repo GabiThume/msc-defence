@@ -191,16 +191,15 @@ Universidade de São Paulo \\ }
 %   \end{itemize}
 % \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}[plain]{Motivação}
-  \setstretch{1.2}
+\subsection{Motivação}
+\begin{frame}{Motivação}
   \setlength\leftmargini{1em}
   \begin{figure}
-    \includegraphics[height=0.9\textheight]{figuras/flow.png}
+    \includegraphics[height=0.8\textheight]{figuras/flow.png}
     \caption{Etapas canônicas do reconhecimento de padrões.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
-\subsection{Motivação}
 \begin{frame}{Motivação}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
@@ -223,7 +222,7 @@ Universidade de São Paulo \\ }
 %   \end{itemize}
 % \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação --- Quantização}
+\begin{frame}{Motivação I --- Quantização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \begin{figure}[htbp]
@@ -245,21 +244,18 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação}
+\begin{frame}{Motivação I --- Quantização}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  \begin{block}{Quantização}
-    \setstretch{1.2}
   \begin{itemize}
         \item Redução da complexidade no ínicio do reconhecimento;
     \item Apesar de fazer parte do pipeline, muitos estudos não descrevem o método de quantização e seus parâmetros;
     \item Quantização pode impactar a classificação (Kanan e Cottrell, 2012);
     \item Ao negligenciar essa etapa, perde-se a \textit{oportunidade de redução da dimensionalidade do vetor de características e/ou do tempo de execução das etapas posteriores.}
   \end{itemize}
-  \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação --- Desbalanceamento de classes}
+\begin{frame}{Motivação II --- Desbalanceamento de classes}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \setstretch{1.2}
@@ -272,10 +268,9 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Motivação}
+\begin{frame}{Motivação II --- Rebalanceamento de classes}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-    \begin{block}{Rebalanceamento de classes}
     \begin{itemize}
       \item \textit{Synthetic Minority Over-sampling Technique} (SMOTE): geração de exemplos a partir de vetores de características originais;
       \item Não existem estudos dessas técnicas em dados de informação visual;
@@ -283,11 +278,10 @@ Universidade de São Paulo \\ }
     \end{itemize}
     \begin{figure}[htbp]
       \begin{center}
-        \includegraphics[width=.25\linewidth]{figuras/imagemgerada.jpg}
+        \includegraphics[width=.3\linewidth]{figuras/imagemgerada.jpg}
       \end{center}
       \caption{Imagem artificialmente gerada.}
     \end{figure}
-  \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
 \subsection{Hipóteses}
@@ -322,7 +316,7 @@ Universidade de São Paulo \\ }
 %   \end{block}
 % \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Contribuições}
+\begin{frame}{Contribuições I}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \begin{itemize}
@@ -338,7 +332,7 @@ Universidade de São Paulo \\ }
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Contribuições}
+\begin{frame}{Contribuições II}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \begin{itemize}
@@ -354,11 +348,11 @@ Universidade de São Paulo \\ }
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \begin{itemize}
-    \item Código para a quantização:
+    \item Código contendo métodos de quantização, extração de características e redução de dimensionalidade:
     \begin{center}
       \small{\url{http://dx.doi.org/10.5281/zenodo.15932}}
     \end{center}
-    \item Código da geração de imagens artificiais:
+    \item Código contendo métodos para a quantização, geração de imagens, SMOTE, visualização e classificação:
     \begin{center}
       \small{\url{https://github.com/GabiThume/msc-src}}
     \end{center}
@@ -384,6 +378,7 @@ Universidade de São Paulo \\ }
 % \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantização de imagens}
+\subsection{Contextualização}
 \begin{frame}{Quantização de imagens}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
@@ -392,13 +387,13 @@ Universidade de São Paulo \\ }
       \item Métodos de extração estão preparados para receber imagens em um canal de cor;
       \item Características podem ser extraídas para cada canal de cor e posteriormente concatenadas;
       \item O pipeline inclui a conversão de imagens coloridas em imagens com apenas um canal;
-      \item \textbf{Explorar essa etapa para produzir vetores mais compactos.}
+      \item \textbf{Explorar a quantização para reduzir o tempo de processamento e obter vetores mais compactos.}
       % \item Diferentes parâmetros de quantização combinados com quatro métodos de extração de cor e um de textura.
     \end{itemize}
   \end{block}
 \end{frame}
-
-\subsection{Contextualização}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Método}
 %-----------------------------------------------------------------------------
 % \begin{frame}{Pré-processamento de Imagens --- Quantização}
 %   \setstretch{1.2}
@@ -471,12 +466,11 @@ Universidade de São Paulo \\ }
     \caption{Imagens da base \emph{Caltech101-600} quantizadas com MSB.}
     \begin{itemize}
       \item Com 256 e 64 há preservação da informação;
-      \item Mas com apenas 32, há perda significativa de informação nas regiões com pouco contraste.
+      % \item Mas com apenas 32, há perda significativa de informação nas regiões com pouco contraste.
+      \item A partir de 32, ainda que seja possível discernir o objeto, há maior degradação, em particular no exemplo da primeira linha.
     \end{itemize}
   \end{figure}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Método}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experimentos}
 \begin{frame}{Experimentos}
@@ -532,7 +526,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{block}{}
         \begin{enumerate}
-      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB.
+      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'} e MSB;
       \item \textbf{Extração de características\footnote{Penatti et al., 2012}}:
       \begin{itemize}
         \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
@@ -540,7 +534,7 @@ Universidade de São Paulo \\ }
         \item \textit{Color Coherence Vector} (CCV): $\mathit{threshold} = 25$;
         \item Haralick-6: pixel vizinho à direita.
       \end{itemize}
-      \item \textbf{Redução da dimensionalidade\footnote{Zhuo et al., 2014}}: \textit{Locality Preserving Projections} (LPP) com $k=$ 10 vizinhos.
+      \item \textbf{Redução da dimensionalidade\footnote{Zhuo et al., 2014}}: \textit{Locality Preserving Projections} (LPP) com $k=$ 10 vizinhos;
       \item \textbf{Classificação}: \textit{Support Vector Machines} (SVM) com \textit{grid search} no conjunto de treinamento.
     \end{enumerate}
   \end{block}
@@ -578,8 +572,8 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Acurácia média utilizando MSB e BIC.}
   \begin{itemize}
-    \item Os \textit{boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à 256 cores;
-    \item Quantizar para 64 cores prova ser boa escolha de processamento.
+    \item \textit{Boxplots} em cinza correspondem às significâncias estatísticas com $\textit{p-value} < 0.01$ quando comparado à 256 cores;
+    \item Quantizar para 64 cores prova ser uma escolha interessante de pré-processamento.
   \end{itemize}
   \end{figure}
 \end{frame}
@@ -610,7 +604,7 @@ Universidade de São Paulo \\ }
       \begin{itemize}
         \item Versões reduzidas de 256, 128 e 64 dimensões.
       \end{itemize}
-      \item Comparar da acurácia dos vetores com dimensionalidade reduzida.
+      \item Comparar a acurácia dos vetores com dimensionalidade reduzida.
     \end{enumerate}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -624,8 +618,10 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Acurácia comparando os métodos MSB e LPP.}
     \begin{itemize}
-      \item A comparação foi realizada com a mesma dimensionalidade;
-      \item Ao utilizar um número de cores correto, é possível manter ou melhorar a acurácia.
+      \item Comparação realizada com a mesma dimensionalidade;
+      % \item Ao utilizar um número de cores correto, é possível manter ou melhorar a acurácia.
+      \item Quantizar imagens pode produzir resultados similares a projetar as características em um espaço de menor dimensão;
+      \item Importante explorá-la para melhorar a discriminação entre as classes.
     \end{itemize}
   \end{figure}
 \end{frame}
@@ -636,8 +632,8 @@ Universidade de São Paulo \\ }
     % \item Número de dimensões de um único descritor pode ser considerado baixo;
     \begin{enumerate}
       \item Converter a imagem em escala de cinza com 256 cores;
-      \item Extrair as características com todos os métodos;
-      \item Concatenar as características em um vetor $D=2310$;
+      \item Extrair as características com \textbf{todos os métodos};
+      \item Concatenar as características em um vetor com $D=2310$;
       \item Analisar:
       \begin{itemize}
         \item Redução da dimensionalidade com LPP para $d=$ 1160, 582, 294 e 150;
@@ -702,7 +698,7 @@ Universidade de São Paulo \\ }
       \item Redução significativa da dimensionalidade:
       \begin{itemize}
         \item Enquanto melhora ou mantém a classificação do sistema;
-        \item inclusive quanto comparado com métodos mais complexos.
+        \item Inclusive quanto comparado com métodos mais complexos.
       \end{itemize}
       \item Redução do tempo de execução:
       \begin{itemize}
@@ -728,7 +724,7 @@ Universidade de São Paulo \\ }
     \begin{enumerate}
       \item \emph{Pré-processamento ao reamostrar os dados:}
       \begin{itemize}
-        \item Aumentar a minoritária (Em geral, melhores resultados);
+        \item Aumentar a minoritária (em geral, melhores resultados);
         \item Diminuir a majoritária.
       \end{itemize}
       \item \emph{Modificar métodos de aprendizagem:}
@@ -745,7 +741,7 @@ Universidade de São Paulo \\ }
     \begin{itemize}
     \item Diminuir o número de elementos do conjunto;
     \item Eliminar elementos distantes da fronteira de decisão (menos relevantes);
-    \item Apresentam resultados piores:
+    \item Apresentam resultados piores, em geral:
     \begin{itemize}
       \item Pode remover informações essenciais dos dados originais;
     \end{itemize}
@@ -764,7 +760,7 @@ Universidade de São Paulo \\ }
         \item Calcula a diferença entre o vetor de características de um elemento e do seu vizinho mais próximo;
         \item Multiplica essa diferença por um número $0 \leq x \leq 1$;
         \item Adiciona ao vetor original, criando um novo elemento entre os dois vetores originais;
-        \item Aprendido como exemplo da classe minoritária;
+        \item Aprendido como exemplo da classe minoritária.
       \end{enumerate}
     \end{block}
   \end{itemize}
@@ -825,7 +821,7 @@ Universidade de São Paulo \\ }
       \begin{itemize}
         \item Combinação ou perturbação das imagens de entrada.
       \end{itemize}
-      \item Utilizado como entrada para métodos de extração ou CNNs:
+      \item Utilizado como entrada para métodos de extração ou CNNs (textit{Data Augmentation}):
       \begin{itemize}
         \item SMOTE opera no espaço de características já extraídas.
       \end{itemize}
@@ -990,16 +986,16 @@ Universidade de São Paulo \\ }
   \begin{figure}
     \begin{center}
       \subfloat[Original]{
-      \includegraphics[width=.31\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-a.png}}
+      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-a.png}}
       }
       \subfloat[Original]{
-      \includegraphics[width=.31\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-b.png}}
+      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-b.png}}
       }
       \subfloat[Imagem artificial]{
-      \includegraphics[width=.31\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
+      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
       }
     \end{center}
-    \caption{Combinação de saliência.}
+    \caption{Combinação de saliência obtida com GMR.}
     \begin{itemize}
       \item A imagem resultante (c) apresenta a região saliente de (b) sobreposta em (a).
     \end{itemize}
@@ -1085,20 +1081,20 @@ Universidade de São Paulo \\ }
   \item Visualização do espaço obtido após o rebalanceamento:
     \begin{itemize}
       \item Geração de imagens;
-      \item SMOTE;
+      \item SMOTE.
     \end{itemize}
   \item Verificar a definição da classe minoritária em relação ao espaço original;
   \item Analisar qual método mais se assemelha à distribuição original dos dados.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimento --- Protocolo}
+\begin{frame}{Experimento de Visualização --- Protocolo}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{block}{}
         \begin{enumerate}
     \item \textbf{Imagens originais}: \emph{Horse} e \emph{Elephant} com 100 imagens cada;
-    \item \textbf{Desbalanceamento}: cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \emph{Horse} sofreu remoção de 50\% do seu conjunto de treino;
+    \item \textbf{Desbalanceamento}: cada classe foi dividida em 50\% para treino e 50\% para teste, de maneira aleatória. Após, a classe \textit{Horse} é desbalanceada, removendo 88\% do conjunto de treino aleatoriamente.
     \item \textbf{Método para geração de imagens}: \emph{mistura ponderada};
     \item \textbf{Conversão em escala de cinza}: \emph{Intensidade'};
     \item \textbf{Extração de características}: BIC;
@@ -1165,7 +1161,7 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Projeção dos dois componentes principais obtidos com o PCA.}
     \begin{itemize}
-      \item À direita, as classes após a remoção de 50\% do treino da classe \emph{Horse}.
+      \item À direita, as classes após a remoção de 88\% do treino da classe \emph{Horse}.
     \end{itemize}
   \end{figure}
 \end{frame}
@@ -1176,10 +1172,10 @@ Universidade de São Paulo \\ }
   \begin{figure}
     \begin{center}
       \subfloat[SMOTE]{
-      \includegraphics[width=.42\linewidth]{\detokenize{figuras/visualizacao/smote-treino-fixed.png}}
+      \includegraphics[width=.41\linewidth]{\detokenize{figuras/visualizacao/smote-treino-fixed.png}}
       }
       \subfloat[Geração de imagens]{
-      \includegraphics[width=.42\linewidth]{\detokenize{figuras/visualizacao/geracao-treino-fixed.png}}
+      \includegraphics[width=.41\linewidth]{\detokenize{figuras/visualizacao/geracao-treino-fixed.png}}
       }
     \end{center}
     \caption{Novos exemplos de treinamento.}
@@ -1217,13 +1213,13 @@ Universidade de São Paulo \\ }
   \begin{figure}
     \begin{center}
       \subfloat[Desbalanceado]{
-      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/desbalanceado-teste-region.png}}
+      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/desbalanceado-treino-region.png}}
       }
       \subfloat[Smote]{
-      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/smote-teste-region.png}}
+      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/smote-treino-region.png}}
       }
       \subfloat[Geração de imagens]{
-      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/geracao-teste-region.png}}
+      \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/geracao-treino-region.png}}
       }
     \end{center}
     \caption{Região de decisão com 1-NN.}
@@ -1300,18 +1296,18 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{block}{}
         \begin{enumerate}
-      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'}, \emph{Luma} e MSB.
+      \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'}, \emph{Luma} e MSB;
       \item \textbf{Extração de características\footnote{Penatti et al.}}:
       \begin{itemize}
         \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
         \item \textit{Border-Interior Classification} (BIC): vizinhança de quatro pixels;
         \item \textit{Color Coherence Vector} (CCV): $\mathit{threshold} = 25$;
-        \item Haralick-6: pixel vizinho à direita.
-        \item \textit{Histogram of Oriented Gradients} (HOG):;
-        \item \textit{Local Binary Patterns} (LBP) com padrões uniformes:;
+        \item Haralick-6: pixel vizinho à direita;
+        \item \textit{Histogram of Oriented Gradients} (HOG):[todo];
+        \item \textit{Local Binary Patterns} (LBP) com padrões uniformes:[todo].
       \end{itemize}
       \item \textbf{Classificação}: KNN com $K=1$;
-      \item \textbf{Métrica estatística}: F1-Score;
+      \item \textbf{Medida estatística}: \textit{F1-Score}.
     \end{enumerate}
   \end{block}
 \end{frame}
@@ -1363,7 +1359,7 @@ Universidade de São Paulo \\ }
     \begin{center}
       \includegraphics[width=.8\linewidth]{\detokenize{figuras/artificial-generation/1/ACC_Gleam_elefante-cavalo.png}}
     \end{center}
-    \caption{Combinação com melhor F1-Score para \textit{Horse} e \textit{Elephant}: \emph{Gleam} e ACC}
+    \caption{Combinação com melhor F1-Score para \textit{Horse} e \textit{Elephant}: \emph{Gleam} e ACC.}
   \end{figure}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -1372,7 +1368,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{table}
     \begin{center}
-      \caption{A geração com \textit{Composição 4} obteve maior valor de \textit{F1-Score}. Difere do resultado utilizando BIC e Intensidade'.}
+      \caption{A geração com \textit{Composição 4} obteve maior valor de \textit{F1-Score}.}
       \footnotesize{
         \begin{tabular}{|l|c|c|}
           \hline
@@ -1420,32 +1416,32 @@ Universidade de São Paulo \\ }
   \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- \textit{Ranking} do rebalanceamento}
-  \setstretch{1.2}
-  \setlength\leftmargini{1em}
-  \begin{table}
-    \centering
-    \caption{Resultados acumulados de todos os experimentos. Diferenças não significativas de F1-Score possuem o mesmo peso que as significantes.}
-    \footnotesize{
-    \begin{tabular}{|l|l|l|}
-      \hline
-      \multicolumn{1}{|c|}{\textbf{Cenários de duas classes}} & \multicolumn{1}{c|}{\textbf{Cenário Multiclasses}} & \multicolumn{1}{c|}{\textbf{Todos}} \\ \hline
-      Aguçamento (16)       & SMOTE (13)          & Limiares (35)                       \\ \hline
-      Limiares (17)         & Mistura (14)        & Mistura (39)                        \\ \hline
-      Saliência (22)        & Limiares (18)       & SMOTE (42)                          \\ \hline
-      Todos (25)            & Todos (22)          & Aguçamento (43)                     \\ \hline
-      Mistura (25)          & Saliência (24)      & Saliência (46)                      \\ \hline
-      Composição 4 (29)     & Aguçamento (27)     & Todos (47)                          \\ \hline
-      SMOTE (29)            & Composição 4 (28)   & Composição 4 (57)                   \\ \hline
-      Composição 16 (37)    & Ruído (28)          & Composição 16 (69)                  \\ \hline
-      Borramento (44)       & Borramento (29)     & Borramento (73)                     \\ \hline
-      Ruído (47)            & Composição 16 (32)  & Ruído (75)                          \\ \hline
-      SMOTE Visual (47)     & Desbalanceado (34)  & Desbalanceado (86)                  \\ \hline
-      Desbalanceado (52)    & SMOTE Visual (42)   & SMOTE Visual (89)                   \\ \hline
-    \end{tabular}
-    }
-  \end{table}
-\end{frame}
+% \begin{frame}{Experimentos --- \textit{Ranking} do rebalanceamento}
+%   \setstretch{1.2}
+%   \setlength\leftmargini{1em}
+%   \begin{table}
+%     \centering
+%     \caption{Resultados acumulados de todos os experimentos. Diferenças não significativas de F1-Score possuem o mesmo peso que as significantes.}
+%     \footnotesize{
+%     \begin{tabular}{|l|l|l|}
+%       \hline
+%       \multicolumn{1}{|c|}{\textbf{Cenários de duas classes}} & \multicolumn{1}{c|}{\textbf{Cenário Multiclasses}} & \multicolumn{1}{c|}{\textbf{Todos}} \\ \hline
+%       Aguçamento (16)       & SMOTE (13)          & Limiares (35)                       \\ \hline
+%       Limiares (17)         & Mistura (14)        & Mistura (39)                        \\ \hline
+%       Saliência (22)        & Limiares (18)       & SMOTE (42)                          \\ \hline
+%       Todos (25)            & Todos (22)          & Aguçamento (43)                     \\ \hline
+%       Mistura (25)          & Saliência (24)      & Saliência (46)                      \\ \hline
+%       Composição 4 (29)     & Aguçamento (27)     & Todos (47)                          \\ \hline
+%       SMOTE (29)            & Composição 4 (28)   & Composição 4 (57)                   \\ \hline
+%       Composição 16 (37)    & Ruído (28)          & Composição 16 (69)                  \\ \hline
+%       Borramento (44)       & Borramento (29)     & Borramento (73)                     \\ \hline
+%       Ruído (47)            & Composição 16 (32)  & Ruído (75)                          \\ \hline
+%       SMOTE Visual (47)     & Desbalanceado (34)  & Desbalanceado (86)                  \\ \hline
+%       Desbalanceado (52)    & SMOTE Visual (42)   & SMOTE Visual (89)                   \\ \hline
+%     \end{tabular}
+%     }
+%   \end{table}
+% \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Experimentos --- \textit{F1-Scores} de cada método}
   \setstretch{1.2}
@@ -1482,7 +1478,7 @@ Universidade de São Paulo \\ }
     \footnotesize{
     \begin{tabular}{|l|c|c|}
     \hline
-    \multicolumn{1}{|c|}{\textbf{Métodos}} & \textbf{Diferença média da melhoria} & \textbf{STD} \\ \hline
+    \multicolumn{1}{|c|}{\textbf{Métodos}} & \textbf{Diferença média da melhoria} & \textbf{Desvio Padrão} \\ \hline
     Aguçamento                             & 16,860795                            & 2,206283     \\ \hline
     Limiares                               & 14,774237                            & 2,190548     \\ \hline
     Saliência                              & 13,078076                            & 2,544774     \\ \hline
@@ -1504,7 +1500,7 @@ Universidade de São Paulo \\ }
   \setstretch{1.5}
   \setlength\leftmargini{1em}
   \begin{itemize}
-    \item Modificar parâmetros dos métodos e verificar a diferença da acurácia com os parâmetros padrões;
+    \item Modificar parâmetros dos métodos e verificar a diferença do desempenho da classificação com os parâmetros padrões;
     \item Ligeira melhora: entre 1\% e 3\%;
     \item No geral, possível superar os resultados do SMOTE.
   \end{itemize}
@@ -1522,6 +1518,11 @@ Universidade de São Paulo \\ }
       Geração de imagens      &  0.97 $\pm$ 0.020 \\
     \end{tabular}
   \end{table}
+  % \begin{block}
+  %   \begin{itemize}
+  %     \item X\% de treino, X\% de teste.
+  %   \end{itemize}
+  % \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Geração de imagens --- Discussão}
@@ -1531,6 +1532,7 @@ Universidade de São Paulo \\ }
     \item Pode haver ganho estatístico do F1-Score ao gerar imagens (versus a geração de exemplos no espaço de atributos);
     \item Na maioria dos experimentos, a geração obteve significância estatística relevante quando comparada à base desbalanceada;
     \item Pode gerar novas informações relevantes para a classificação de imagens;
+    \item Pode ser utilizado como \textit{Data Augmentation} em CNNs;
     \item Um estudo aprofundado de cada contexto pode indicar quais operações aplicar.
   \end{itemize}
 \end{frame}
@@ -1542,8 +1544,8 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item Alternativa/complemento à seleção de características;
-    \item Redução de 256 para 64 produziu bons resultados;
-    \item Utilizar quantização como um primeiro passo e então o LPP;
+    \item Redução de 256 para 64 produziu resultados significativos;
+    \item Aplicar o LPP em imagens quantizadas com 64 cores obteve melhores resultados do que em 256;
     \item Faz parte do pipeline: não aumenta o custo computacional do sistema e simplifica os passos subsequentes;
     \item Reduz a dimensão dos vetores de características de cor;
     \item Reduz o tempo de computação para os descritores de textura.
@@ -1557,7 +1559,7 @@ Universidade de São Paulo \\ }
     \item Novas informações para a classificação de imagens;
     \item Melhorou a acurácia dos algoritmos de classificação, inclusive quando comparada à geração de exemplos no espaço de atributos;
     \item Provou contribuir com o balanceamento entre classes;
-    \item A visualização do espaço (características das novas imagens e as resultantes da interpolação dos vetores) mostrou que a geração é capaz de ocupar uma região mais abrangente do espaço.
+    \item A visualização do espaço mostrou que a geração é capaz de ocupar uma região mais abrangente do espaço.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -1621,11 +1623,11 @@ Universidade de São Paulo \\ }
 \begin{frame}{Trabalhos futuros --- Geração de imagens}
   \begin{figure}
     \includegraphics[height=0.75\textheight]{figuras/geral.pdf}
-    \caption{Trabalhos futuros.}
+    \caption{Sugestão de extensão do \textit{pipeline} atual para trabalhos futuros.}
   \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Agradecimentos}
+\subsection{Agradecimentos}
 \begin{frame}{Agradecimentos}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
