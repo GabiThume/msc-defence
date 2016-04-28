@@ -449,7 +449,7 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Imagens convertidas em escala de cinza.}
     \begin{itemize}
-      \item \emph{Luminância'} e MSB apresentam uma melhor discriminação entre cores;
+      \item \emph{Luminância'} e MSB (\textit{Most Significant Bits}) apresentam uma melhor discriminação entre cores;
       \item A imagem quantizada possui 232 intensidades únicas para o MSB e 184 intensidades para os demais métodos.
     \end{itemize}
   \end{figure}
@@ -698,7 +698,7 @@ Universidade de São Paulo \\ }
       \item Redução significativa da dimensionalidade:
       \begin{itemize}
         \item Enquanto melhora ou mantém a classificação do sistema;
-        \item Inclusive quanto comparado com métodos mais complexos.
+        \item Inclusive quando comparado com métodos mais complexos.
       \end{itemize}
       \item Redução do tempo de execução:
       \begin{itemize}
@@ -821,7 +821,7 @@ Universidade de São Paulo \\ }
       \begin{itemize}
         \item Combinação ou perturbação das imagens de entrada.
       \end{itemize}
-      \item Utilizado como entrada para métodos de extração ou CNNs (textit{Data Augmentation}):
+      \item Utilizado como entrada para métodos de extração ou CNNs (\textit{Data Augmentation}):
       \begin{itemize}
         \item SMOTE opera no espaço de características já extraídas.
       \end{itemize}
@@ -929,7 +929,7 @@ Universidade de São Paulo \\ }
       \includegraphics[height=2.8cm,keepaspectratio]{\detokenize{figuras/artificial-generation/methods/smote-c.png}}
       }
     \end{center}
-    \caption{Smote ao nível de pixels.}
+    \caption{SMOTE ao nível de pixels.}
     \begin{itemize}
       \item É possível notar a sobreposição de uma ``sombra'' da Figura (b) em (a).
     \end{itemize}
@@ -995,7 +995,7 @@ Universidade de São Paulo \\ }
       \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
       }
     \end{center}
-    \caption{Combinação de saliência obtida com GMR.}
+    \caption{Combinação de saliência obtida com GMR (\textit{Graph-Based Manifold Ranking}).}
     \begin{itemize}
       \item A imagem resultante (c) apresenta a região saliente de (b) sobreposta em (a).
     \end{itemize}
@@ -1192,7 +1192,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{figure}
     \begin{center}
-      \subfloat[Smote (Acc 0.83)]{
+      \subfloat[SMOTE (Acc 0.83)]{
       \includegraphics[width=.42\linewidth]{\detokenize{figuras/visualizacao/smote-teste-fixed.png}}
       }
       \subfloat[Geração de imagens (Acc 0.93)]{
@@ -1215,7 +1215,7 @@ Universidade de São Paulo \\ }
       \subfloat[Desbalanceado]{
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/desbalanceado-treino-region.png}}
       }
-      \subfloat[Smote]{
+      \subfloat[SMOTE]{
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/smote-treino-region.png}}
       }
       \subfloat[Geração de imagens]{
@@ -1238,7 +1238,7 @@ Universidade de São Paulo \\ }
       \subfloat[Desbalanceado]{
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/desbalanceado-treino.png}}
       }
-      \subfloat[Smote]{
+      \subfloat[SMOTE]{
       \includegraphics[width=.32\linewidth]{\detokenize{figuras/visualizacao/smote-treino.png}}
       }
       \subfloat[Geração de imagens]{
@@ -1297,14 +1297,15 @@ Universidade de São Paulo \\ }
   \begin{block}{}
         \begin{enumerate}
       \item \textbf{Quantização\footnote{Kanan e Cottrell, 2012; Ponti e Escobar, 2013}}: \emph{Intensidade'}, \emph{Gleam}, \emph{Luminância'}, \emph{Luma} e MSB;
-      \item \textbf{Extração de características\footnote{Penatti et al.}}:
+      \item \textbf{Extração de características\footnote{Penatti et al., 2012}}:
       \begin{itemize}
         \item \textit{Auto Color Correlogram} (ACC): quatro distâncias $d =$ 1, 3, 5 e 7;
         \item \textit{Border-Interior Classification} (BIC): vizinhança de quatro pixels;
         \item \textit{Color Coherence Vector} (CCV): $\mathit{threshold} = 25$;
         \item Haralick-6: pixel vizinho à direita;
-        \item \textit{Histogram of Oriented Gradients} (HOG):[todo];
-        \item \textit{Local Binary Patterns} (LBP) com padrões uniformes:[todo].
+        \item \textit{Histogram of Oriented Gradients\footnote{Dalal e
+Triggs, 2005}} (HOG): 16x16 células;
+        \item \textit{Local Binary Patterns} (LBP) com padrões uniformes\footnote{Ojala et al, 2002}: janelas 2x2.
       \end{itemize}
       \item \textbf{Classificação}: KNN com $K=1$;
       \item \textbf{Medida estatística}: \textit{F1-Score}.
@@ -1407,7 +1408,7 @@ Universidade de São Paulo \\ }
 \begin{frame}{Experimentos --- Resultados}
   \setstretch{1.2}
   \setlength\leftmargini{1em}
-  \begin{block}{Teste \textit{post-hoc} HSD de Tukey}
+  \begin{block}{Teste \textit{post-hoc} HSD (\textit{Honest Significant Difference}) de Tukey}
   \begin{itemize}
     \item Não há diferença estatística relevante entre a base desbalanceada e o SMOTE ($\textit{p-value}=0.2073$);
     \item Significância entre o desbalanceamento e a geração de imagens ($\textit{p-value}=0.0062$);
@@ -1510,19 +1511,16 @@ Universidade de São Paulo \\ }
   \setstretch{1.2}
   \setlength\leftmargini{1em}
   \begin{table}
+    \footnotesize{
     \caption{Treinamento de uma Rede Neural de Convolução.}
-    \begin{tabular}{c|c|c}
-      Base                    &  \textit{Horse} e \textit{Elephant} & \textit{Mountain} e \textit{Beach}  \\ \hline
-      Original balanceada     &  0.96 $\pm$ 0.011 \\
-      Desbalanceada           &  0.91 $\pm$ 0.009 \\
-      Geração de imagens      &  0.97 $\pm$ 0.020 \\
+    \begin{tabular}{c|c|c|c}
+      Base                    &  Acurácia média & \textit{Elephant} &  \textit{Horse}\\ \hline
+      Original balanceada     &  0.96 $\pm$ 0.011 & 20 Teste --- 80 Treino & 20 Teste --- 80 Treino\\
+      Desbalanceada           &  0.91 $\pm$ 0.009 & 20 Teste --- 20 Treino & 20 Teste --- 80 Treino\\
+      Geração de imagens      &  0.97 $\pm$ 0.020 & 20 Teste --- 80 Treino & 20 Teste --- 80 Treino\\
     \end{tabular}
+    }
   \end{table}
-  % \begin{block}
-  %   \begin{itemize}
-  %     \item X\% de treino, X\% de teste.
-  %   \end{itemize}
-  % \end{block}
 \end{frame}
 %-----------------------------------------------------------------------------
 \begin{frame}{Geração de imagens --- Discussão}
@@ -1544,7 +1542,7 @@ Universidade de São Paulo \\ }
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item Alternativa/complemento à seleção de características;
-    \item Redução de 256 para 64 produziu resultados significativos;
+    \item Redução de 256 para 64 cores produziu resultados significativos;
     \item Aplicar o LPP em imagens quantizadas com 64 cores obteve melhores resultados do que em 256;
     \item Faz parte do pipeline: não aumenta o custo computacional do sistema e simplifica os passos subsequentes;
     \item Reduz a dimensão dos vetores de características de cor;
