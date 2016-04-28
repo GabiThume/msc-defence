@@ -352,7 +352,7 @@ Universidade de São Paulo \\ }
     \begin{center}
       \small{\url{http://dx.doi.org/10.5281/zenodo.15932}}
     \end{center}
-    \item Código contendo métodos para a quantização, geração de imagens, SMOTE, visualização e classificação:
+    \item Código contendo métodos para a quantização, extração de características, geração de imagens, SMOTE, visualização e classificação:
     \begin{center}
       \small{\url{https://github.com/GabiThume/msc-src}}
     \end{center}
@@ -669,7 +669,8 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Comparação da redução de dimensionalidade com LPP e MSB.}
     \begin{itemize}
-      \item Utilizar 128 ou 64 cores é indicado como uma boa escolha do parâmetro de quantização.
+      \item A quantização não se apresenta pior do que o LPP;
+      \item Utilizar 64 cores é indicado como uma boa escolha do parâmetro de quantização.
     \end{itemize}
   \end{figure}
 \end{frame}
@@ -1555,7 +1556,7 @@ Triggs, 2005}} (HOG): 16x16 células;
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item Novas informações para a classificação de imagens;
-    \item Melhorou a acurácia dos algoritmos de classificação, inclusive quando comparada à geração de exemplos no espaço de atributos;
+    \item Melhorou o \textit{F1-Score} dos algoritmos de classificação, inclusive quando comparada à geração de exemplos no espaço de atributos;
     \item Provou contribuir com o balanceamento entre classes;
     \item A visualização do espaço mostrou que a geração é capaz de ocupar uma região mais abrangente do espaço.
   \end{itemize}
