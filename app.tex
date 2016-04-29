@@ -822,7 +822,7 @@ Universidade de São Paulo \\ }
       \begin{itemize}
         \item Combinação ou perturbação das imagens de entrada.
       \end{itemize}
-      \item Utilizado como entrada para métodos de extração ou CNNs (\textit{Data Augmentation}):
+      \item Utilizado como entrada para métodos de extração ou Redes Neurais de Convolução (\textit{Data Augmentation}):
       \begin{itemize}
         \item SMOTE opera no espaço de características já extraídas.
       \end{itemize}
@@ -987,13 +987,13 @@ Universidade de São Paulo \\ }
   \begin{figure}
     \begin{center}
       \subfloat[Original]{
-      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-a.png}}
+      \includegraphics[width=.2\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-a.png}}
       }
       \subfloat[Original]{
-      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-b.png}}
+      \includegraphics[width=.2\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-b.png}}
       }
       \subfloat[Imagem artificial]{
-      \includegraphics[width=.3\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
+      \includegraphics[width=.2\linewidth]{\detokenize{figuras/artificial-generation/methods/saliency-c.png}}
       }
     \end{center}
     \caption{Combinação de saliência obtida com GMR (\textit{Graph-Based Manifold Ranking}).}
@@ -1181,7 +1181,7 @@ Universidade de São Paulo \\ }
     \end{center}
     \caption{Novos exemplos de treinamento.}
     \begin{itemize}
-      \item Projeção no plano da base original desbalanceada;
+      \item Projeção no plano da base original balanceada;
       \item O método SMOTE gerou exemplos próximos a uma linha reta;
       \item A geração de imagens proporcionou mais dispersão.
     \end{itemize}
@@ -1450,7 +1450,7 @@ Triggs, 2005}} (HOG): 16x16 células;
   \setlength\leftmargini{1em}
   \begin{table}
     \centering
-    \caption{Média ordenada pela coluna de todos os experimentos.}
+    \caption{Média do \textit{F1-Score} para cada método, ordenada pela coluna de todos os experimentos realizados na dissertação para a geração de imagens.}
     \footnotesize{
     \begin{tabular}{|l|c|c|c|}
       \hline
@@ -1498,13 +1498,13 @@ Triggs, 2005}} (HOG): 16x16 células;
   \end{table}
 \end{frame}
 %-----------------------------------------------------------------------------
-\begin{frame}{Experimentos --- Fine tunning}
+\begin{frame}{Experimentos --- Ajuste de parâmetros}
   \setstretch{1.5}
   \setlength\leftmargini{1em}
   \begin{itemize}
     \item Modificar parâmetros dos métodos e verificar a diferença do desempenho da classificação com os parâmetros padrões;
     \item Ligeira melhora: entre 1\% e 3\%;
-    \item No geral, possível superar os resultados do SMOTE.
+    \item No geral, é possível superar os resultados do SMOTE.
   \end{itemize}
 \end{frame}
 %-----------------------------------------------------------------------------
@@ -1513,8 +1513,8 @@ Triggs, 2005}} (HOG): 16x16 células;
   \setlength\leftmargini{1em}
   \begin{table}
     \footnotesize{
-    \caption{Treinamento de uma Rede Neural de Convolução.}
-    \begin{tabular}{c|c|c|c}
+    \caption{Treinamento de uma Rede Neural de Convolução com arquitetura similar à Alexnet.}
+    \begin{tabular}{l|c|c|c}
       Base                    &  Acurácia média & \textit{Elephant} &  \textit{Horse}\\ \hline
       Original balanceada     &  0.96 $\pm$ 0.011 & 20 Teste --- 80 Treino & 20 Teste --- 80 Treino\\
       Desbalanceada           &  0.91 $\pm$ 0.009 & 20 Teste --- 20 Treino & 20 Teste --- 80 Treino\\
@@ -1531,7 +1531,7 @@ Triggs, 2005}} (HOG): 16x16 células;
     \item Pode haver ganho estatístico do F1-Score ao gerar imagens (versus a geração de exemplos no espaço de atributos);
     \item Na maioria dos experimentos, a geração obteve significância estatística relevante quando comparada à base desbalanceada;
     \item Pode gerar novas informações relevantes para a classificação de imagens;
-    \item Pode ser utilizado como \textit{Data Augmentation} em CNNs;
+    \item Pode ser utilizado como \textit{Data Augmentation} em Redes Neurais de Convolução;
     \item Um estudo aprofundado de cada contexto pode indicar quais operações aplicar.
   \end{itemize}
 \end{frame}
@@ -1595,7 +1595,7 @@ Triggs, 2005}} (HOG): 16x16 células;
   \setstretch{1.2}
   \setlength\leftmargini{1em}
     \begin{itemize}
-  \item Análise dos espaços encontrados para os diferentes métodos de geração;
+  \item Análise dos espaços encontrados com a projeção de diferentes métodos de geração de imagens;
   \item O impacto em extratores de características pode sugerir quais são as características latentes;
   \item Outros métodos para geração podem ser sugeridos;
   \item SMOTE visual pode ser realizado com imagens próximas ao invés de aleatórias.
@@ -1606,7 +1606,7 @@ Triggs, 2005}} (HOG): 16x16 células;
   \setstretch{1.5}
   \setlength\leftmargini{1em}
     \begin{itemize}
-  \item Estado da arte de extração e classificação de imagens corresponde ao uso de Rede Neural Convolucional (SCHMIDHUBER, 2014):
+  \item Estado da arte de extração e classificação de imagens corresponde ao uso de Redes Neurais de Convolução (SCHMIDHUBER, 2014):
     \begin{itemize}
     \item Aprender quais são as melhores características que diferenciam as classes de imagens;
     \item Podem indicar possíveis operações para a geração de imagens artificiais.
